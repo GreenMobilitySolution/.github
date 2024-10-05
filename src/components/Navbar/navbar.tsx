@@ -40,9 +40,9 @@ function Navbar() {
         onClick={() => {
           navigate('/');
         }}
-        className="cursor-pointer flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
+        className="cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
       >
-        <img src={logoUrl} alt="Mobylife Logo" className='w-[20%]'/>
+        <img src={logoUrl} alt="Mobylife Logo" className="w-auto h-12" /> {/* Increased logo size */}
       </h1>
 
       <div className="hidden lg:w-[40%] xmd:w-[40%] min-h-10 xmd:flex items-center justify-between gap-x-1 px-4 py-2 border border-neutrals500 bg-white rounded-3xl">

@@ -33,17 +33,27 @@ const Router = () => {
         path="/profile"
         element={
           <MainLayout>
-            <PageTitle title="Ndevu Store | Profile" />
+            <PageTitle title="MobyLife | Profile" />
              <Navigate to="/" />
           </MainLayout>
         }
       />
 
+      {/* <Route 
+      path="/single-route/:id" 
+      element={
+        <MainLayout>
+          <PageTitle title="MobyLife | Single route" />
+          <SingleRoutePage />
+        </MainLayout>
+      } 
+      /> */}
+
       <Route
         path="/search"
         element={
           <MainLayout>
-            <PageTitle title="Ndevu Store | Search" />
+            <PageTitle title="MobyLife | Search" />
             <SearchPage />
           </MainLayout>
         }
