@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Bot, BotMessageSquare, SendHorizontal, X } from 'lucide-react';
+import { MessageCircle, SendHorizontal, X } from 'lucide-react';
 import { BeatLoader } from 'react-spinners';
 import toast from 'react-hot-toast';
 
@@ -18,7 +18,7 @@ function Chatbot() {
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!newMessage) return toast.error('Please compose a message');
+    if (!newMessage) return toast.error('Andika ubutumwa bugufi.');
     if (newMessage.trim()) {
       setMessages((prevMessages) => [
         ...prevMessages,
@@ -35,7 +35,7 @@ function Chatbot() {
     setTimeout(() => {
       setMessages((prevMessages) => [
         ...prevMessages,
-        { message: 'This is a response from the bot', sender: 'bot' },
+        { message: 'Iki ni igisubizo kivuye kuri MobyLife Chatbot', sender: 'bot' },
       ]);
       setLoading(false);
     }, 1000);
@@ -57,15 +57,15 @@ function Chatbot() {
     <div className="z-[99999]">
       {isOpen && (
         <div className="fixed bottom-0 right-0 mr-4 mb-20 w-[90vw] h-[80vh] sm:w-[400px] sm:h-[500px] flex flex-col shadow-lg rounded-lg border-[2px] border-grey3 p-1 bg-white overflow-hidden z-[99999]">
-          <div className="h-[5vh] sm:h-[50px] w-full bg-primary flex items-center p-4 gap-2 rounded-t-lg">
+          <div className="h-[5vh] sm:h-[50px] w-full bg-green-500 flex items-center p-4 gap-2 rounded-t-lg">
             <h1 className="text-white font-poppins font-medium">Chatbot</h1>
-            <Bot strokeWidth={2.5} className="text-white font-poppins font-medium" role="testRole" />
+            <MessageCircle strokeWidth={2.5} className="text-white font-poppins font-medium" role="testRole" />
           </div>
           <div className="flex flex-col h-full bg-white">
             <div className="h-[65vh] sm:h-[370px] w-full flex flex-col justify-items-end p-2 overflow-x-hidden overflow-y-auto">
               {messages.length === 0 && (
                 <div className="w-full flex items-center justify-center">
-                  <p className="font-poppins font-normal text-grey4">No messages yet, start chatting</p>
+                  <p className="font-poppins font-normal text-grey4">Nta butumwa bugufi buhari, Tangira ikiganiro.</p>
                 </div>
               )}
               {messages.map((message, index) => (
@@ -96,7 +96,7 @@ function Chatbot() {
                   role="testInputRole"
                 />
                 <button
-                  className="h-[40px] w-[60px] flex items-center justify-center bg-primary rounded-sm border border-primary"
+                  className="h-[40px] w-[60px] flex items-center justify-center bg-green-500 rounded-sm border border-green-500"
                   role="sendButton"
                 >
                   <SendHorizontal className="text-white font-poppins" strokeWidth={1.5} role="testRole" />
@@ -107,14 +107,14 @@ function Chatbot() {
         </div>
       )}
       <div
-        className="fixed bottom-0 right-0 mr-4 mb-4 w-[50px] h-[50px] rounded-full bg-orange flex items-center justify-center cursor-pointer"
+        className="fixed bottom-0 right-0 mr-4 mb-4 w-[50px] h-[50px] rounded-full bg-green-500 flex items-center justify-center cursor-pointer"
         onClick={() => setIsOpen(!isOpen)}
         role="testButtonRole"
       >
         {isOpen ? (
           <X strokeWidth={2} className="text-white" role="testRole" />
         ) : (
-          <BotMessageSquare strokeWidth={2} className="text-white" role="testRole" />
+          <MessageCircle strokeWidth={2} className="text-white" role="testRole" />
         )}
       </div>
     </div>
