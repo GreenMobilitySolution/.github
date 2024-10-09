@@ -26,6 +26,76 @@
           "to": "Rwamagana"
         },
         {
+          "id": 5,
+          "from": "Rubavu",
+          "to": "Rwamagana"
+        },
+        {
+          "id": 5,
+          "from": "Rubavu",
+          "to": "Rwamagana"
+        },
+        {
+          "id": 5,
+          "from": "Rubavu",
+          "to": "Rwamagana"
+        },
+        {
+          "id": 5,
+          "from": "Rubavu",
+          "to": "Rwamagana"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
           "id": 6,
           "from": "Rusizi",
           "to": "Rubavu"
@@ -44,6 +114,66 @@
           "id": 9,
           "from": "Musanze",
           "to": "Kibungo"
+        },
+        {
+          "id": 9,
+          "from": "Musanze",
+          "to": "Kibungo"
+        },
+        {
+          "id": 9,
+          "from": "Musanze",
+          "to": "Kibungo"
+        },
+        {
+          "id": 9,
+          "from": "Musanze",
+          "to": "Kibungo"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
+        },
+        {
+          "id": 10,
+          "from": "Nyanza",
+          "to": "Nyanza"
         },
         {
           "id": 10,
@@ -91,9 +221,74 @@
           "to": "Nyanza"
         },
         {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
+          "id": 18,
+          "from": "Nyamagabe",
+          "to": "Nyanza"
+        },
+        {
           "id": 19,
           "from": "Huye",
           "to": "Kibeho"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
+        },
+        {
+          "id": 20,
+          "from": "Nyabugogo",
+          "to": "Kibuye"
         },
         {
           "id": 20,
@@ -171,9 +366,54 @@
           "to": "Nyanza"
         },
         {
-          "id": 35,
-          "from": "Nyabugogo",
-          "to": "Kibeho"
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 6,
+          "from": "Rusizi",
+          "to": "Rubavu"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
+        },
+        {
+          "id": 7,
+          "from": "Rusizi",
+          "to": "Ruhengeri"
         },
         {
           "id": 36,

@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
-import { GareForCategoryCard } from "./Cards/GareCards/GareForCategoryCard";
-import { Gare, GareProp, RouteForGare } from "../../lib";
-import LoadButton from "./Buttons/LoadButton";
+import { Gare, GareProp, RouteForGare } from "../../../lib";
+import { GareForCategoryCard } from "../Cards/GareCards/GareForCategoryCard";
+import LoadButton from "../Buttons/LoadButton";
 
-export function CategoryGareSection(props: GareProp) {
+export function SingleCategory(props: GareProp) {
   const [gareList, setGareList] = useState<Gare[]>([]);
   const [viewGares, setViewGares] = useState<Gare[]>([]);
   const [viewItems, setViewItems] = useState(4);
@@ -15,7 +15,6 @@ export function CategoryGareSection(props: GareProp) {
   };
 
   useEffect(() => {
-    // Simulate fetching routes and classifying them into Gares
     setTimeout(() => {
       const classifiedGares: { [key: string]: RouteForGare[] } = {};
 
@@ -44,7 +43,7 @@ export function CategoryGareSection(props: GareProp) {
 
   return (
     <>
-      <div>
+      <div id="gares">
         <div className="flex flex-col items-center justify-around gap-y-8 py-8 mt-5 xmd:px-8 lg:px-16" id="routes">
           <h1 className="text-2xl font-medium">{props.CategoryTitle}</h1>
           <div className="gare w-full">
@@ -53,7 +52,7 @@ export function CategoryGareSection(props: GareProp) {
 
           {loading && (
             <div className="w-full flex justify-center px-6 py-20" data-testid="loading-spinner">
-              <PropagateLoader color="#0d5a24" />
+              <PropagateLoader color="#070f2b" />
             </div>
           )}
 
