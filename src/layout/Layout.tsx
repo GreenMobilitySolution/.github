@@ -1,5 +1,5 @@
 import React from 'react';
-import Router from '../Routes/Router';
+import Router from '../Router/Router';
 
 const Layout = () => {
   return (
