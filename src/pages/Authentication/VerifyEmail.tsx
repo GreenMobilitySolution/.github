@@ -1,28 +1,43 @@
-import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
-import { verifyUser } from '../../redux/actions/verifyingEmailAction';
-import { resetState } from '../../redux/reducers/verifyEmailReducer';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const VerifyEmail = () => {
   const { token } = useParams<{ token: string }>();
+  const navigate = useNavigate();
 
-  const dispatch = useDispatch<AppDispatch>();
-  const { verify, loading, error } = useSelector((state: RootState) => state.verifyEmail);
+  const [loading, setLoading] = useState(true);
+  const [verify, setVerify] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (token) {
-      dispatch(verifyUser(token));
-    }
-
-    return () => {
-      dispatch(resetState());
+    const verifyUser = async (token: string) => {
+      try {
+        const response = await axios.post('/api/verify-email', { token });
+        if (response.status === 200) {
+          setVerify(true);
+          toast.success('Email verified successfully!');
+        } else {
+          setError(true);
+          toast.error('Something went wrong. Please try again.');
+        }
+      } catch (err) {
+        setError(true);
+        toast.error('Something went wrong. Please try again.');
+      } finally {
+        setLoading(false);
+      }
     };
-  }, [dispatch, token]);
 
-  // Extract text from ReactNode
+    if (token) {
+      verifyUser(token);
+    } else {
+      setError(true);
+      setLoading(false);
+    }
+  }, [token]);
 
   return (
     <div className="min-h-[50vh] h-auto w-full flex items-center justify-center py-10 px-4 bg-transparent1">

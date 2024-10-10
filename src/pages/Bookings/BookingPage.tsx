@@ -19,8 +19,8 @@ const BookingPage = () => {
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("");
   const [packages, setPackages] = useState<Package[]>([]);
   const [isStudent, setIsStudent] = useState(false);
-  const [visibleCompanyCars, setVisibleCompanyCars] = useState(5);
-  const [visibleIndividualCars, setVisibleIndividualCars] = useState(5);
+  const [visibleCompanyCars, setVisibleCompanyCars] = useState(3);
+  const [visibleIndividualCars, setVisibleIndividualCars] = useState(3);
 
   const handleNextStep = () => {
     setStep(step + 1);
@@ -45,11 +45,11 @@ const BookingPage = () => {
   };
 
   const loadMoreCompanyCars = () => {
-    setVisibleCompanyCars((prev) => prev + 5);
+    setVisibleCompanyCars((prev) => prev + 3);
   };
 
   const loadMoreIndividualCars = () => {
-    setVisibleIndividualCars((prev) => prev + 5);
+    setVisibleIndividualCars((prev) => prev + 3);
   };
 
   return (
@@ -61,7 +61,7 @@ const BookingPage = () => {
             <>
               <h1 className="text-2xl font-semibold mb-4">Which car do you want to go with?</h1>
               <div className="flex flex-col  flex items-center justify-center gap-5 mb-4">
-                <h1 className="text-primary text-xl mt-5 mb-5">Public Cars</h1>
+                <h1 className="text-primary text-xl mt-5 mb-5">Public Companies</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   {companyCars.slice(0, visibleCompanyCars).map((car) => (
                     <BookingCarCard

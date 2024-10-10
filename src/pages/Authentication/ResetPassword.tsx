@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import { resetPassword } from '../../redux/actions/passwordResetActions';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { resetState } from '../../redux/reducers/passwordResetReducer';
 import toast from 'react-hot-toast';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Eye, EyeOff } from 'lucide-react';
+import axios from 'axios';
 
 interface ResetPasswordData {
   newPassword: string;
@@ -16,9 +13,9 @@ interface ResetPasswordData {
 export const ResetPassword: React.FC = () => {
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
-  const dispatch = useDispatch<AppDispatch>();
-  const { loading, error, resetPassword: registerResponse } = useSelector((state: RootState) => state.password);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [resetResponse, setResetResponse] = useState<string | null>(null);
 
   const {
     register,
@@ -37,20 +34,34 @@ export const ResetPassword: React.FC = () => {
   useEffect(() => {
     if (error) {
       toast.error(error);
-      dispatch(resetState());
+      setError(null);
     }
-    if (registerResponse) {
-      toast.success(registerResponse.data.message);
+    if (resetResponse) {
+      toast.success(resetResponse);
       reset();
-      dispatch(resetState());
+      setResetResponse(null);
       navigate('/login');
     }
-  }, [error, registerResponse, dispatch, reset, navigate]);
+  }, [error, resetResponse, reset, navigate]);
 
-  const onSubmit: SubmitHandler<ResetPasswordData> = () => {
+  const onSubmit: SubmitHandler<ResetPasswordData> = async (data) => {
     if (!userId || !email) return toast.error('Password reset link is required');
 
-    dispatch(resetPassword({ email, userId, confirmPassword: confirmPass, newPassword: password }));
+    try {
+      setLoading(true);
+      const response = await axios.post('/api/reset-password', {
+        email,
+        userId,
+        newPassword: data.newPassword,
+        confirmPassword: data.confirmPassword
+      });
+      setResetResponse(response.data.message);
+    } catch (err: any) {
+      const errorMessage = err.response?.data?.message || 'Something went wrong, please try again.';
+      setError(errorMessage);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const password = watch('newPassword', '');
@@ -69,7 +80,7 @@ export const ResetPassword: React.FC = () => {
   const isEmailValid = password !== '' && confirmPass !== '';
 
   return (
-    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4  bg-transparent1">
+    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4 bg-transparent1">
       <form
         className="min-w-[90%] flex flex-col items-center justify-start gap-y-4 bg-white p-12 md:min-w-[500px] md:max-w-[500px]"
         onSubmit={handleSubmit(onSubmit)}

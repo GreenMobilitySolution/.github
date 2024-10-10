@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import { LoginData } from '../../types/registerType';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
 import toast from 'react-hot-toast';
-import { loginUser } from '../../redux/actions/loginAction';
 import google from '../../images/google.png';
-import { clearCredentials, setCredentials } from '../../redux/reducers/authReducer';
 import { Link, useNavigate } from 'react-router-dom';
-import { resetState } from '../../redux/reducers/loginReducer';
-import { setUser } from '../../redux/reducers/userReducer';
-import { fetchCart } from '../../redux/actions/cartAction';
+import axios from 'axios';
+import { LoginData } from '../../../lib/auth/loginData';
 
 export interface DecodedToken {
   id: string;
@@ -23,6 +17,8 @@ export interface DecodedToken {
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   const {
     register,
@@ -32,43 +28,48 @@ function Login() {
   } = useForm<LoginData>();
 
   const navigate = useNavigate();
-  const dispatch = useDispatch<AppDispatch>();
-  const { login: loginResponse, loading, error } = useSelector((state: RootState) => state.login);
 
-  const onSubmit: SubmitHandler<LoginData> = (userData: LoginData) => {
-    dispatch(loginUser(userData));
-  };
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  useEffect(() => {
-    if (error) {
-      toast.error(error, {
+  const onSubmit: SubmitHandler<LoginData> = async (userData: LoginData) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.post('/login', userData);
+      const { token, message, email } = response.data;
+
+      toast.success(message, {
         duration: 4000
       });
-      if (error === 'Your account has been suspended') {
+
+      if (message === 'Please provide the OTP sent to your email or phone') {
+        localStorage.setItem('email', email);
+        navigate('/otp-verification');
+      } else {
+        localStorage.setItem('token', token);
+        navigate('/');
+      }
+
+      reset();
+    } catch (err) {
+      const errorMessage = axios.isAxiosError(err) && err.response?.data?.message 
+        ? err.response.data.message 
+        : 'Something went wrong, please try again.';
+      setError(errorMessage);
+      toast.error(errorMessage, {
+        duration: 4000
+      });
+      if (errorMessage === 'Your account has been suspended') {
         navigate('/suspended-account');
       } else {
         navigate('/login');
       }
-      dispatch(clearCredentials());
-      dispatch(resetState());
+    } finally {
+      setLoading(false);
     }
-    if (loginResponse) {
-      toast.success(loginResponse.data!.message, {
-        duration: 4000
-      });
-      if (loginResponse.data!.message === 'Please provide the OTP sent to your email or phone') {
-        dispatch(setUser(loginResponse.data!.email));
-        navigate('/otp-verification');
-      } else {
-        dispatch(setCredentials(loginResponse.data?.token));
-        dispatch(fetchCart());
-      }
-      reset();
-      dispatch(resetState());
-    }
-  }, [error, navigate, loginResponse, dispatch, reset]);
+  };
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const googleAuth = () => {
     window.open(`${import.meta.env.VITE_APP_API_URL}/user/google-auth`, '_self');

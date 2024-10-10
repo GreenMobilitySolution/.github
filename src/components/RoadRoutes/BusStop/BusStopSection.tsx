@@ -42,7 +42,15 @@ export function BusStopSection(props: BusStopProp) {
       <div id="bus-stops">
         <div className="flex p-10 flex-col items-center justify-around gap-y-8 py-8 mt-5 xmd:px-8 lg:px-16" id="routes">
           <div>
-          <h1 className="text-2xl font-medium">{props.CategoryTitle}  <span className="text-green-700">   {props.price} FRW</span></h1>
+          <h1 className="text-2xl font-medium">{props.CategoryTitle}   <span className="ml-2 text-green-700"> {"  "}  {props.price} FRW</span></h1>
+          <div className="flex justify-left flex-col items-left mt-5 mb-5">
+          <p className="text-gray-500 text-left text-l">Igihe urugendo rumara mumasaha:</p>
+          <ul>
+            <li className="text-gray-500 text-left text-l">Ubusanzwe: <span className="text-black text-right text-l">{3} Hours</span></li>
+            <li className="text-gray-500 text-left text-l">Ambutiyaje idakabije: <span className="text-black text-right text-l">3:30 Hours</span></li>
+            <li className="text-gray-500 text-left text-l">Ambutiyaje ikabije: <span className="text-black text-right text-l">{5} Hours</span></li>
+          </ul>
+          </div>
           <div className="flex items-center justify-center mt-2">
           <GreenButton handle={handleButtonClick} >
               Katisha itike
