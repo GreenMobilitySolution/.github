@@ -52,7 +52,7 @@ export function SingleCategoryCars(props: GareProp) {
            ? 'Kompanyi n\'amamodoka akorera Mumugi wa Kigali' 
            : props.CategoryTitle === 'Ingendo zo Muntara' 
            || props.CategoryTitle === 'Upcountry Routes' 
-           ? 'Kompanyi n\'amamodoka akorera Muntara' : props.CategoryTitle
+           ? 'Kompanyi n\'amamodoka akorera Muntara' : 'Kompanyi n\'amamodoka watega'
           }</h1>
           <div className="gare w-full">
             <p className="text-gray-500 text-left mx-10 text-lg">Kompanyi/Imodoka:</p>

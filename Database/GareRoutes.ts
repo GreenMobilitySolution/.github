@@ -1,437 +1,499 @@
 
       export const routes = [
         {
-          "id": 1,
-          "from": "Nyabugogo",
-          "to": "Musanze"
+          "id":"1",      
+              "from": "Nyabugogo",
+          "to": "Musanze",
+          "price": 2000,
         },
         {
-          "id": 2,
-          "from": "Nyabugogo",
-          "to": "Huye"
+          "id":"2",      
+              "from": "Nyabugogo",
+          "to": "Huye",
+          "price": 2000,
         },
         {
-          "id": 3,
-          "from": "Nyabugogo",
-          "to": "Gisenyi"
+          "id":"3",      
+              "from": "Nyabugogo",
+          "to": "Gisenyi",
+          "price": 2000,
         },
         {
-          "id": 4,
-          "from": "Huye",
-          "to": "Nyamata"
+          "id":"4",      
+              "from": "Huye",
+          "to": "Nyamata",
+          "price": 2000,
         },
         {
-          "id": 5,
-          "from": "Rubavu",
-          "to": "Rwamagana"
+          "id":"5",      
+              "from": "Rubavu",
+          "to": "Rwamagana",
+          "price": 2000,
         },
         {
-          "id": 5,
-          "from": "Rubavu",
-          "to": "Rwamagana"
+          "id":"5",      
+              "from": "Rubavu",
+          "to": "Rwamagana",
+          "price": 2000
         },
         {
-          "id": 5,
-          "from": "Rubavu",
-          "to": "Rwamagana"
+          "id":"5",      
+              "from": "Rubavu",
+          "to": "Rwamagana",
+          "price": 2000
         },
         {
-          "id": 5,
-          "from": "Rubavu",
-          "to": "Rwamagana"
+          "id":"5",      
+              "from": "Rubavu",
+          "to": "Rwamagana",
+          "price": 2000
         },
         {
-          "id": 5,
-          "from": "Rubavu",
-          "to": "Rwamagana"
+          "id":"5",      
+              "from": "Rubavu",
+          "to": "Rwamagana",
+          "price": 2000
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
+          "to": "Rubavu",
+          "price": 2000
+        },
+        {
+          "id":"7",      
+              "from": "Rusizi",
+          "to": "Ruhengeri",
+          "price": 2000
+        },
+        {
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
-          "to": "Rubavu"
-        },
-        {
-          "id": 7,
-          "from": "Rusizi",
-          "to": "Ruhengeri"
-        },
-        {
-          "id": 8,
-          "from": "Kigali",
+          "id":"8",      
+              "from": "Kigali",
           "to": "Kibuye"
         },
         {
-          "id": 9,
-          "from": "Musanze",
+          "id":"9",      
+              "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 9,
-          "from": "Musanze",
+          "id":"9",      
+              "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 9,
-          "from": "Musanze",
+          "id":"9",      
+              "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 9,
-          "from": "Musanze",
+          "id":"9",      
+              "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 10,
+          "id":"10",
+     
           "from": "Nyanza",
           "to": "Nyanza"
         },
         {
-          "id": 11,
+          "id":"11",
+     
           "from": "Kigali",
           "to": "Kibeho"
         },
         {
-          "id": 12,
+          "id":"12",
+     
           "from": "Kigali",
           "to": "Kibuye"
         },
         {
-          "id": 13,
+          "id":"13",
+     
           "from": "Kigali",
           "to": "Kibungo"
         },
         {
-          "id": 14,
+          "id":"14",
+     
           "from": "Kigali",
           "to": "Nyanza"
         },
         {
-          "id": 15,
+          "id":"15",
+     
           "from": "Rusizi",
           "to": "Kigali"
         },
         {
-          "id": 16,
+          "id":"16",
+     
           "from": "Kigali",
           "to": "Kibuye"
         },
         {
-          "id": 17,
+          "id":"17",
+     
           "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 18,
+          "id":"18",
+     
           "from": "Nyamagabe",
           "to": "Nyanza"
         },
         {
-          "id": 19,
+          "id":"19",
+     
           "from": "Huye",
           "to": "Kibeho"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 20,
+          "id":"20",
+     
           "from": "Nyabugogo",
           "to": "Kibuye"
         },
         {
-          "id": 21,
+          "id":"21",
+     
           "from": "Downtown",
           "to": "Gikondo"
         },
         {
-          "id": 22,
+          "id":"22",
+     
           "from": "Huye",
           "to": "Nyanza"
         },
         {
-          "id": 23,
+          "id":"23",
+     
           "from": "Huye",
           "to": "Kibeho"
         },
         {
-          "id": 24,
+          "id":"24",
+     
           "from": "Rwamagana",
           "to": "Kibuye"
         },
         {
-          "id": 25,
+          "id":"25",
+     
           "from": "Rwamagana",
           "to": "Kibungo"
         },
         {
-          "id": 26,
+          "id":"26",
+     
           "from": "Huye",
           "to": "Nyanza"
         },
         {
-          "id": 27,
+          "id":"27",
+     
           "from": "Kamonyi",
           "to": "Kibeho"
         },
         {
-          "id": 28,
+          "id":"28",
+     
           "from": "Kamonyi",
           "to": "Kibuye"
         },
         {
-          "id": 29,
+          "id":"29",
+     
           "from": "Rwamagana",
           "to": "Kibungo"
         },
         {
-          "id": 30,
+          "id":"30",
+     
           "from": "Kigali",
           "to": "Nyanza"
         },
         {
-          "id": 31,
+          "id":"31",
+     
           "from": "Huye",
           "to": "Kibeho"
         },
         {
-          "id": 32,
+          "id":"32",
+     
           "from": "Huye",
           "to": "Kibuye"
         },
         {
-          "id": 33,
+          "id":"33",
+     
           "from": "Kimironko",
           "to": "Kibungo"
         },
         {
-          "id": 34,
+          "id":"34",
+     
           "from": "Kimironko",
           "to": "Nyanza"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 6,
-          "from": "Rusizi",
+          "id":"6",      
+              "from": "Rusizi",
           "to": "Rubavu"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 7,
-          "from": "Rusizi",
+          "id":"7",      
+              "from": "Rusizi",
           "to": "Ruhengeri"
         },
         {
-          "id": 36,
+          "id":"36",
+     
           "from": "Musanze",
           "to": "Kibuye"
         },
         {
-          "id": 37,
+          "id":"37",
+     
           "from": "Musanze",
           "to": "Kibungo"
         },
         {
-          "id": 38,
+          "id":"38",
+     
           "from": "Rubavu",
           "to": "Nyanza"
         },
         {
-          "id": 39,
+          "id":"39",
+     
           "from": "Kigali",
           "to": "Kibeho"
         }

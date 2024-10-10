@@ -7,6 +7,8 @@ import SearchPage from '../pages/searchPage';
 import { useLocation } from 'react-router-dom';
 import NotFound from './NotFound';
 import SingleCategoryPage from '../pages/CategoryPage';
+import SingleRoutePage from '../pages/RideRoutes/SingleRoute';
+import BookingPage from '../pages/Bookings/BookingPage';
 
 const Router = () => {
   const location = useLocation();
@@ -39,7 +41,7 @@ const Router = () => {
         }
       />
 
-      {/* <Route 
+      <Route 
       path="/single-route/:id" 
       element={
         <MainLayout>
@@ -47,7 +49,18 @@ const Router = () => {
           <SingleRoutePage />
         </MainLayout>
       } 
-      /> */}
+      />
+
+    {/* <Route path="/" element={<BusStopSection />} /> */}
+    
+      <Route 
+          path="/bookings/select-car" 
+          element={
+            <MainLayout>
+              <BookingPage />
+            </MainLayout>
+        } 
+      />
 
       <Route 
       path="/category/:categoryName" 
