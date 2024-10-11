@@ -22,7 +22,7 @@ const HeroSection = () => {
         <div className="flex gap-5">
           {updates.slice(currentIndex, currentIndex + 2).map((update, index) => (
             <div key={index} className="w-full max-w-md p-5 bg-white rounded-lg shadow-md">
-              <h2 className="text-xl font-semibold text-primary mb-2">{update.title}</h2> 
+              <h2 className="text-xl font-medium text-primary mb-2">{update.title}</h2> 
               <p className="text-gray-700 mb-2 text-s">{update.description}</p> 
               <p className="text-gray-500 text-s">{update.date}</p> 
             </div>

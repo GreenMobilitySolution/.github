@@ -28,3 +28,4 @@ export const GareForCategoryCard: React.FC<GareForCategoryCardProps> = ({ Routes
     </div>
   );
 };
+{/* <BusStopCard key={route.id} id={route.id} from={route.from} to={route.to} /> */}

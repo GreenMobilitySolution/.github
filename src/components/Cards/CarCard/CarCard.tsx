@@ -8,7 +8,7 @@ const CarCard: React.FC<CarCardProps> = ({ name, model, imageUrl, description, o
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    navigate(`/car/${name}-${model}`);
+    navigate(`/bookings/select-car?car-name=${name}`);
   };
 
   return (

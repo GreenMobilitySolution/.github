@@ -2,24 +2,32 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
 import CategoriesSubMenu from '../../components/Menu/CategoriesSubMenu';
-import { SingleCategory } from '../../components/Category/SingleCategory';
 import { routes } from '../../../Database/GareRoutes';
 import { SingleCategoryCars } from '../../components/Cars/SingleCategoryCars';
-
+import { BusStopSection } from '../../components/RoadRoutes/BusStop/BusStopSection';
+import { busStops } from '../../../Database/BusStop/BusStops';
 
 const SingleRoutePage = () => {
-  const { categoryName = '' } = useParams<{ categoryName: string }>();
+    const { id = '' } = useParams<{ id: string }>();
 
-  return (
-    <>
-      <PageTitle title={`MobyLife | ${categoryName}`} />
-      <div className="hidden xmd:flex">
-        <CategoriesSubMenu />
-      </div>
-      <SingleCategory Routes={routes} CategoryTitle={categoryName} />
-      <SingleCategoryCars Routes={routes} CategoryTitle={categoryName} />
-    </>
-  );
+    const route = routes.find(route => route.id === id);
+
+    if (!route) {
+        return <div><h1>Route not found</h1></div>;
+    }
+
+    const routeName = `${route.from} - ${route.to}`;
+
+    return (
+        <>
+            <PageTitle title={`MobyLife | ${routeName}`} />
+            <div className="hroute den xmd:flex">
+                <CategoriesSubMenu />
+            </div>
+            <BusStopSection busStops={busStops} CategoryTitle={routeName} price={6000}/>
+            <SingleCategoryCars Routes={routes} CategoryTitle={routeName} />
+        </>
+    );
 };
 
 export default SingleRoutePage;

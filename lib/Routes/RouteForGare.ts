@@ -1,5 +1,5 @@
 export interface RouteForGare {
-    id: number;
+    id: string;
     from: string;
     to: string;
 }
