@@ -4,10 +4,17 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { RegisterData } from '../../../lib/auth/signup';
-import GreenButton from '../../components/Buttons/GreenButton';
+import RegisterButton from '../../components/Buttons/RegisterButton';
 
-function Register() {
+interface RegisterDriverData {
+    email: string;
+    phoneNumber: string;
+    tin: string;
+    password: string;
+    userType: string;
+  }
+
+function RegisterDriver() {
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const {
@@ -16,14 +23,14 @@ function Register() {
     formState: { errors },
     reset,
     watch
-  } = useForm<RegisterData>();
+  } = useForm<RegisterDriverData>();
 
   const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<RegisterData> = async (userData: RegisterData) => {
+  const onSubmit: SubmitHandler<RegisterDriverData> = async (userData: RegisterDriverData) => {
     setLoading(true);
     try {
-      userData.userType = 'Buyer';
+      userData.userType = 'Driver';
       const response = await axios.post('/register', userData);
       toast.success(response.data.message);
       reset();
@@ -53,18 +60,18 @@ function Register() {
   );
 
   return (
-    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4">
+    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4 bg-gray-100">
       <form
-        className="min-w-[90%] flex flex-col items-center justify-start gap-y-4 bg-white p-12 md:min-w-[500px] md:max-w-[500px]"
+        className="min-w-[90%] flex flex-col items-center justify-start gap-y-4 bg-white p-12 md:min-w-[500px] md:max-w-[500px] shadow-lg rounded-lg"
         onSubmit={handleSubmit(onSubmit)}
       >
-        <h1 className="min-w-[100%] text-black1 text-2xl font-medium">Sign up</h1>
+        <h1 className="min-w-[100%] text-black1 text-2xl font-medium">Sign up as Driver</h1>
 
         <div className="w-full flex flex-col items-start justify-start gap-y-2">
           <p className="text-black1 text-lg">Email Address</p>
-          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white">
+          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white rounded-lg">
             <input
-              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg"
+              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
               type="email"
               placeholder="johnDoe@gmail.com"
               {...register('email', { required: true })}
@@ -75,9 +82,9 @@ function Register() {
 
         <div className="w-full flex flex-col items-start justify-start gap-y-2">
           <p className="text-black1 text-lg">Phone number</p>
-          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white">
+          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white rounded-lg">
             <input
-              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg"
+              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
               type="text"
               placeholder="0788302145"
               {...register('phoneNumber', { required: true })}
@@ -87,10 +94,23 @@ function Register() {
         </div>
 
         <div className="w-full flex flex-col items-start justify-start gap-y-2">
-          <p className="text-black1 text-lg">Create password</p>
-          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white">
+          <p className="text-black1 text-lg">TIN (Tax Identification Number)</p>
+          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white rounded-lg">
             <input
-              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg"
+              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
+              type="text"
+              placeholder="TIN"
+              {...register('tin', { required: true })}
+            />
+          </div>
+          {errors.tin && <span className="text-orange">TIN is required</span>}
+        </div>
+
+        <div className="w-full flex flex-col items-start justify-start gap-y-2">
+          <p className="text-black1 text-lg">Create password</p>
+          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white rounded-lg">
+            <input
+              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
               type={showPassword ? 'text' : 'password'}
               placeholder="Password"
               {...register('password', {
@@ -125,13 +145,9 @@ function Register() {
           {errors.password && <span className="text-orange">{errors.password.message}</span>}
         </div>
 
-        <button
-          type={loading ? 'button' : 'submit'}
-          className={`mt-2 px-4 py-2 bg-green-500 rounded-md items-center rounded-3xl text-primary ${loading ? 'cursor-not-allowed' : 'cu'}`}
-        >
+        <RegisterButton type="submit" disabled={loading}>
           {loading ? 'Loading...' : 'Register'}
-        </button>
-
+        </RegisterButton>
 
         <p className="text-small text-black1 md:text-lg">
           Already have an account?{' '}
@@ -144,4 +160,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default RegisterDriver;

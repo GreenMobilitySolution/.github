@@ -7,7 +7,7 @@ export default {
           transparent1: '#EEF5FF',
           background: '#F0EEED',
           background3: '#EEF5FF',
-          primary: '#070F2B',
+          primary: '#070e29',
           baseBlack: '#000000',
           baseWhite: '#FFFFFF',
           neutrals100: '#e3e3e3',
