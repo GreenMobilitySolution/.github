@@ -1,5 +1,5 @@
 
-import { KBS } from "../../src/assets/images/dynamicImages/companies";
+import { KBS } from "../../src/assets/images/companies";
 
 export const SampleCompany = [
     {

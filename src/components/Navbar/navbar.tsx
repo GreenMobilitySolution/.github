@@ -1,27 +1,40 @@
-import React, { useState } from 'react';
-import { Search } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
-import DesktopMenu from '../Menu/DesktopMenu';
-import CategoriesMenu from '../Menu/CategoriesMenu';
-// import NotificationLayout from '../Notification/NotificationLayout';
-import { closeIconUrl, logoUrl, menuIconUrl, userIconUrl } from '../../assets/images/dynamicImages/images';
+import React, { useState, useEffect } from "react";
+import { Search } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import DesktopMenu from "../Menu/DesktopMenu";
+import CategoriesMenu from "../Menu/CategoriesMenu";
+import {
+  closeIconUrl,
+  logoUrl,
+  menuIconUrl,
+  userIconUrl,
+} from "../../assets/images/images";
 
 function Navbar() {
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Check if the user is logged in (this is a placeholder, replace with actual logic)
+    const user = localStorage.getItem("user");
+    setIsLoggedIn(!!user);
+  }, []);
 
   const desktopMenuHandler = () => {
     setShowDesktopMenu((prevData) => !prevData);
   };
 
-  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchInputChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setSearchTerm(event.target.value);
   };
 
   const handleSearchSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
     }
   };
@@ -38,11 +51,12 @@ function Navbar() {
       <h1
         data-testid="homePage"
         onClick={() => {
-          navigate('/');
+          navigate("/");
         }}
         className="cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
       >
-        <img src={logoUrl} alt="Mobylife Logo" className="w-auto h-12" /> {/* Increased logo size */}
+        <img src={logoUrl} alt="Mobylife Logo" className="w-auto h-12" />{" "}
+        {/* Increased logo size */}
       </h1>
 
       <div className="hidden lg:w-[40%] xmd:w-[40%] min-h-10 xmd:flex items-center justify-between gap-x-1 px-4 py-2 border border-neutrals500 bg-white rounded-3xl">
@@ -56,7 +70,11 @@ function Navbar() {
           onKeyDown={handleSearchSubmit}
           data-testid="searchInput"
         />
-        <Search onClick={handleSearch} strokeWidth={1.5} className="text-orange cursor-pointer" />
+        <Search
+          onClick={handleSearch}
+          strokeWidth={1.5}
+          className="text-orange cursor-pointer"
+        />
       </div>
 
       <div className="xmd:hidden flex gap-5" data-testid="userIcon">
@@ -76,7 +94,11 @@ function Navbar() {
           data-testid="mobileMenu"
         >
           <div className="flex justify-between">
-            <img onClick={() => setShowMenu(false)} src={closeIconUrl} alt="Close Icon" />
+            <img
+              onClick={() => setShowMenu(false)}
+              src={closeIconUrl}
+              alt="Close Icon"
+            />
           </div>
           <div className="flex flex-col gap-3 items-center">
             <CategoriesMenu setShowMenu={setShowMenu} />
@@ -85,9 +107,33 @@ function Navbar() {
       )}
 
       <div className="hidden xmd:flex items-center justify-end sm:gap-x-5 lg:gap-x-10">
-        <div onClick={desktopMenuHandler} className="relative cursor-pointer" data-testid="desktopMenuIcon">
-          <img src={userIconUrl} alt="User Icon" className="w-7 h-7" data-testid="userIcon" />
-        </div>
+        {isLoggedIn ? (
+          <div
+            onClick={desktopMenuHandler}
+            className="relative cursor-pointer"
+            data-testid="desktopMenuIcon"
+          >
+            <img
+              src={userIconUrl}
+              alt="Profile Icon"
+              className="w-7 h-7"
+              data-testid="profileIcon"
+            />
+          </div>
+        ) : (
+          <div
+            onClick={() => navigate("/get-started")}
+            className="relative cursor-pointer"
+            data-testid="getStartedIcon"
+          >
+            <button
+              className="bg-green-500 text-white px-4 py-2 rounded-3xl"
+              data-testid="getStartedButton"
+            >
+              Get Started
+            </button>
+          </div>
+        )}
       </div>
       {showDesktopMenu && (
         <div

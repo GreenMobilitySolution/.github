@@ -1,4 +1,4 @@
-import { carUrl } from '../../src/assets/images/dynamicImages/images';
+import { carUrl } from '../../src/assets/images/images';
 import { Car } from '../../lib';
 export const companyCars: Car[] = [
     {

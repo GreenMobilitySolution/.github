@@ -1,4 +1,4 @@
-import { carUrl } from '../../src/assets/images/dynamicImages/images'
+import { carUrl } from '../../src/assets/images/images'
 export const SampleCars = [
     {
       name: "Toyota",
