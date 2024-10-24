@@ -9,8 +9,12 @@ import NotFound from './NotFound';
 import SingleCategoryPage from '../pages/CategoryPage';
 import SingleRoutePage from '../pages/RideRoutes/SingleRoute';
 import BookingPage from '../pages/Bookings/BookingPage';
-import Register from '../pages/Authentication/Register';
-import Login from '../components/Navbar/loginComponent';
+import Register from '../pages/Authentication/RegisterPassenger';
+import GetStarted from '../pages/Authentication/GetStarted';
+import RegisterCompany from '../pages/Authentication/RegisterCompany';
+import RegisterDriver from '../pages/Authentication/RegisterDriver';
+import RegisterPassenger from '../pages/Authentication/RegisterPassenger';
+import Login from '../pages/Authentication/Login';
 
 const Router = () => {
   const location = useLocation();
@@ -42,6 +46,47 @@ const Router = () => {
           </MainLayout>
         }
       />
+
+      <Route
+        path="/get-started"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Get Started" />
+            <GetStarted />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/register-company"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Register Company" />
+            <RegisterCompany />
+          </MainLayout>
+        }
+        />
+
+      <Route
+        path="/register-passenger"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Register Passenger" />
+            <RegisterPassenger />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/register-driver"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Register Driver" />
+            <RegisterDriver />
+          </MainLayout>
+        }
+      />
+
 
       <Route
         path="/profile"
