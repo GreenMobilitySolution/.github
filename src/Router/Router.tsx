@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Navigate, Outlet, Route, Routes, To } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import PageTitle from '../components/PageTitle';
 import MainLayout from '../layout/MainLayout';
 import Home from '../pages/LandingPage/Home';
@@ -9,6 +9,8 @@ import NotFound from './NotFound';
 import SingleCategoryPage from '../pages/CategoryPage';
 import SingleRoutePage from '../pages/RideRoutes/SingleRoute';
 import BookingPage from '../pages/Bookings/BookingPage';
+import Register from '../pages/Authentication/Register';
+import Login from '../components/Navbar/loginComponent';
 
 const Router = () => {
   const location = useLocation();
@@ -32,11 +34,31 @@ const Router = () => {
       />
 
       <Route
+        path="/register"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Register" />
+            <Register />
+          </MainLayout>
+        }
+      />
+
+      <Route
         path="/profile"
         element={
           <MainLayout>
             <PageTitle title="MobyLife | Profile" />
              <Navigate to="/" />
+          </MainLayout>
+        }
+      />
+
+    <Route
+        path="/login"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Login" />
+            <Login />
           </MainLayout>
         }
       />

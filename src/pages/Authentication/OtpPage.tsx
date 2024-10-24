@@ -1,12 +1,8 @@
-import React from 'react';
-import { useState, ChangeEvent, FormEvent } from 'react';
+import React, { useState, ChangeEvent, FormEvent, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
-import { useDispatch, useSelector } from 'react-redux';
-import { AppDispatch, RootState } from '../../redux/store';
-import { setCredentials } from '../../redux/reducers/authReducer';
+import { useNavigate } from 'react-router-dom';
 import handleError from '../../utils/errorHandler';
-import { fetchCart } from '../../redux/actions/cartAction';
 
 const OtpPage = () => {
   interface OtpForm {
@@ -29,10 +25,19 @@ const OtpPage = () => {
 
   const [otpForm, setOtpForm] = useState<OtpForm>(initialForm);
   const [loading, setLoading] = useState(false);
-  const { email } = useSelector((state: RootState) => state.currentUser);
-
-  const dispatch = useDispatch<AppDispatch>();
+  const [email, setEmail] = useState<string | null>(null);
+  const navigate = useNavigate();
   const fields = ['first', 'second', 'third', 'fourth', 'fifth', 'sixth'] as const;
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail) {
+      setEmail(storedEmail);
+    } else {
+      toast.error('Something went wrong, Login again');
+      navigate('/login');
+    }
+  }, [navigate]);
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -57,8 +62,8 @@ const OtpPage = () => {
       const response = await axios.post(`${import.meta.env.VITE_APP_API_URL}/user/verify-otp`, reqData);
 
       if (response.status === 200) {
-        dispatch(setCredentials(response.data.data.token));
-        dispatch(fetchCart());
+        localStorage.setItem('token', response.data.data.token);
+        navigate('/');
       }
     } catch (error) {
       handleError(error);

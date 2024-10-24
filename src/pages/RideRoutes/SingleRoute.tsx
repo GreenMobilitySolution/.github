@@ -6,6 +6,7 @@ import { routes } from '../../../Database/GareRoutes';
 import { SingleCategoryCars } from '../../components/Cars/SingleCategoryCars';
 import { BusStopSection } from '../../components/RoadRoutes/BusStop/BusStopSection';
 import { busStops } from '../../../Database/BusStop/BusStops';
+import CategoriesMenu from '../../components/Menu/CategoriesMenu';
 
 const SingleRoutePage = () => {
     const { id = '' } = useParams<{ id: string }>();
@@ -21,6 +22,7 @@ const SingleRoutePage = () => {
     return (
         <>
             <PageTitle title={`MobyLife | ${routeName}`} />
+            <CategoriesMenu />
             <div className="hroute den xmd:flex">
                 <CategoriesSubMenu />
             </div>

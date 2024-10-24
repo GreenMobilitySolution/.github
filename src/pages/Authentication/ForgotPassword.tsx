@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState, AppDispatch } from '../../redux/store';
-import { resetState } from '../../redux/reducers/passwordResetReducer';
+import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
-import { requestPasswordReset } from '../../redux/actions/passwordResetActions';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import axios from 'axios';
 
 interface ForgotPasswordData {
   email: string;
@@ -17,24 +14,35 @@ export const ForgotPassword: React.FC = () => {
     formState: { errors },
     reset
   } = useForm<ForgotPasswordData>();
-  const dispatch = useDispatch<AppDispatch>();
-  const { loading, error, resetPassword: registerResponse } = useSelector((state: RootState) => state.password);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [registerResponse, setRegisterResponse] = useState<string | null>(null);
 
-  const onSubmit: SubmitHandler<ForgotPasswordData> = (data) => {
-    dispatch(requestPasswordReset(data.email));
+  const onSubmit: SubmitHandler<ForgotPasswordData> = async (data) => {
+    setLoading(true);
+    setError(null);
+    setRegisterResponse(null);
+    try {
+      const response = await axios.post('/api/password-reset', { email: data.email });
+      setRegisterResponse(response.data.message);
+      reset();
+    } catch (err) {
+      setError((err as any).response?.data?.message || 'Something went wrong, please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
     if (error) {
       toast.error(error);
-      dispatch(resetState());
+      setError(null);
     }
     if (registerResponse) {
-      toast.success(registerResponse.data.message);
-      reset();
-      dispatch(resetState());
+      toast.success(registerResponse);
+      setRegisterResponse(null);
     }
-  }, [error, registerResponse, dispatch, reset]);
+  }, [error, registerResponse]);
 
   const isEmailValid = (email: string) => {
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;

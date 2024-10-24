@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import PreviousButton from '../Buttons/PreviousButton';
 import NextButton from '../Buttons/NextButton';
 import { updates } from '../../../Database/updates';

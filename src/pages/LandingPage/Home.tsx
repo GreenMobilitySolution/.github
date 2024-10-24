@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import CategoriesMenu from "../../components/Menu/CategoriesMenu";
-import HeroSection from "../../components/Banners/HeroSection";
+import HeroSection from "../../components/Banners/UpdateSection";
 import { routes } from "../../../Database/GareRoutes";
 import { CategoryGareSection } from "../../components/CategoryGaresSection";
 import { FeedbackForSystem } from "../../components/Feedback/FeedbackForSystem";
