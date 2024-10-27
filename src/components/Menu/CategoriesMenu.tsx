@@ -63,7 +63,7 @@ const CategoriesMenu = ({ setShowMenu }: CategoriesMenuProps) => {
   };
 
   return (
-    <nav className="flex flex-col gap-10 xmd:gap-8 md:gap-10 lg:gap-12 xmd:flex xmd:flex-row items-center justify-between xmd:justify-center h-16 text-neutral-600 text-lg xmd:w-[100%]">
+    <nav className="flex flex-col gap-10 xmd:gap-8 md:gap-10 lg:gap-12 xmd:flex xmd:flex-row items-center justify-between xmd:justify-center h-16 text-neutral-600 text-m xmd:w-[100%]">
       {" "}
       {/* Increased font size */}
       <p

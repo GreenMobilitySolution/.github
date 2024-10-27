@@ -3,6 +3,7 @@ import { KBS } from "../../src/assets/images/companies";
 
 export const SampleCompany = [
     {
+    _id: 'hello2016',
     name: 'KBS',
     NumberOfRoutes: 200,
     logo: KBS,
@@ -23,6 +24,7 @@ export const SampleCompany = [
     description: 'Description'
 },
 {
+    _id: 'hello3',
     name: 'KBC',
     NumberOfRoutes: 150,
     logo: KBS,
@@ -43,6 +45,7 @@ export const SampleCompany = [
     description: 'Description',
 },
 {
+    _id: 'hello3',
     name: 'KBR',
     NumberOfRoutes: 120,
     logo: KBS,
@@ -63,6 +66,7 @@ export const SampleCompany = [
     description: 'Description',
 },
 {
+    _id: 'hello4',
     name: 'KBS',
     NumberOfRoutes: 200,
     logo: KBS,
@@ -83,6 +87,7 @@ export const SampleCompany = [
     description: 'Description',
 },
 {
+    _id: 'hello5',
     name: "KBS",
     NumberOfRoutes: 1000,
     logo: KBS,

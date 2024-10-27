@@ -12,7 +12,7 @@ import {
   LineElement,
   ArcElement,
 } from "chart.js";
-import CompanyGetStarted from "../../../layout/CompanyAdminLayout/CompanyGetStarted";
+import CompanyGetStarted from "../../../layout/Dashboards/CompanyAdminLayout/CompanyGetStarted";
 
 ChartJS.register(
   CategoryScale,

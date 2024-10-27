@@ -15,8 +15,8 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center px-10 py-5 pb-10 bg-gradient-to-r from-green-400 via-green-300 to-green-500">
-      <h1 className="text-2xl font-medium text-white mb-5">Ibigezweho</h1> 
+    <div className="flex flex-col items-center justify-center px-10 pb-10 bg-gradient-to-r from-green-400 via-green-300 to-green-500">
+      <h1 className="text-2xl font-medium text-white m-8">Ibigezweho</h1> 
       <div className="w-full flex items-center justify-center gap-5">
         <PreviousButton onClick={handlePrevious} />
         <div className="flex gap-5">

@@ -15,7 +15,7 @@ import RegisterDriver from "../pages/Authentication/RegisterDriver";
 import RegisterPassenger from "../pages/Authentication/RegisterPassenger";
 import Login from "../pages/Authentication/Login";
 import DriverDashboard from "../pages/Dashboards/CompanyDriverDashboard";
-import PassengerDashboard from "../pages/Dashboards/PassengerDashboard";
+import PassengerAccount from "../pages/Dashboards/PassengerAccount";
 import CompanyDashboard from "../pages/Dashboards/CompanyDashboard";
 import NotAllowed from "./NotAllowed";
 import SecuredRoutes from "../components/Security/SecuredRoutes";
@@ -33,6 +33,8 @@ import CompanyDriverOverview from '../components/Dashboard/CompanyDrivers/Overvi
 import CompanyDriverDashboard from "../pages/Dashboards/CompanyDriverDashboard";
 import CompanyDriverRoutes from '../components/Dashboard/CompanyDrivers/Routes';
 import CompanyDriverBookings from '../components/Dashboard/CompanyDrivers/Bookings';
+import BookCarPage from "../pages/Bookings/BookCarPage";
+import FavoritePage from "../pages/FavoritePage/FavoritePage";
 
 const Router = () => {
   const location = useLocation();
@@ -113,6 +115,18 @@ const Router = () => {
         }
       />
 
+    <Route
+        path="/favorite"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Favorite" />
+            <SecuredRoutes allowedRoles={["Passenger"]}>
+            <FavoritePage />
+            </SecuredRoutes>
+          </MainLayout>
+        }
+      />
+
       <Route
         path="/login"
         element={
@@ -136,12 +150,12 @@ const Router = () => {
       />
 
       <Route
-        path="/passenger-dashboard"
+        path="/account"
         element={
           <MainLayout>
             <PageTitle title="MobyLife | Passenger account" />
             <SecuredRoutes allowedRoles={["Passenger"]}>
-              <PassengerDashboard />
+              <PassengerAccount />
             </SecuredRoutes>
           </MainLayout>
         }
@@ -194,6 +208,15 @@ const Router = () => {
           <MainLayout>
             <PageTitle title="MobyLife | Single route" />
             <SingleRoutePage />
+          </MainLayout>
+        }
+      />
+
+    <Route
+        path="/book/car"
+        element={
+          <MainLayout>
+            <BookCarPage />
           </MainLayout>
         }
       />
