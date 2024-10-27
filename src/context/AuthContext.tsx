@@ -27,10 +27,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const response = await axios.post('/login', { email, password });
       const { token, user } = response.data;
+      if (token && user) {
       localStorage.setItem('token', token);
       localStorage.setItem('user', JSON.stringify(user));
       setUser(user);
       navigateBasedOnRole(user);
+      }
     } catch (error) {
       // Fallback to static accounts if server is not available
       const allUsers = [...users, ...companies];
@@ -49,7 +51,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setUser(null);
-    navigate('/login');
+    navigate('/');
   };
 
   const navigateBasedOnRole = (user: any) => {
@@ -57,6 +59,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       navigate('/driver-dashboard');
     } else if (user.userType === 'Passenger') {
       navigate('/passenger-dashboard');
+    } else if (user.userType === 'companyDriver') {
+      navigate('/company-driver-dashboard');
     } else if (user.companyName) {
       navigate('/company-dashboard');
     } else {

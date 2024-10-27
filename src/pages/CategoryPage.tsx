@@ -13,7 +13,7 @@ const SingleCategoryPage = () => {
   return (
     <>
       <PageTitle title={`MobyLife | ${categoryName}`} />
-      <CategoriesMenu />
+      {/* <CategoriesMenu /> */}
       <div className="hidden xmd:flex">
         <CategoriesSubMenu />
       </div>

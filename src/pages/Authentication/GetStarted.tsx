@@ -15,27 +15,35 @@ const GetStarted: React.FC = () => {
       <p className="text-lg mb-6">How would you like to register?</p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
-          className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
+          className="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
           onClick={() => handleSelection('/register-company')}
         >
-          <FaBus className="text-4xl text-blue-500 mb-4" />
-          <h2 className="text-xl font-medium">Public Transportation Company</h2>
+          <FaBus className="text-5xl text-blue-500 mb-6" />
+          <h2 className="text-1xl font-medium">Public Transportation Company</h2>
         </div>
         <div
-          className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
+          className="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
           onClick={() => handleSelection('/register-passenger')}
         >
-          <FaUser className="text-4xl text-green-500 mb-4" />
-          <h2 className="text-xl font-medium">Passenger</h2>
+          <FaUser className="text-5xl text-green-500 mb-6" />
+          <h2 className="text-1xl font-medium">Passenger</h2>
         </div>
         <div
-          className="bg-white shadow-lg rounded-lg p-6 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
+          className="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
           onClick={() => handleSelection('/register-driver')}
         >
-          <FaCar className="text-4xl text-red-500 mb-4" />
-          <h2 className="text-xl font-medium">Private Driver</h2>
+          <FaCar className="text-5xl text-red-500 mb-6" />
+          <h2 className="text-1xl font-medium">Private Driver</h2>
         </div>
         {/* Add more options as needed */}
+      </div>
+      <div className="mt-5 flex flex-center items-center">
+        <p className="mt-5 text-small text-black1 md:text-lg">
+          Already have an account?{' '}
+          <a href="/login" className="ml-1 text-orange">
+            login here
+          </a>
+        </p>
       </div>
     </div>
   );

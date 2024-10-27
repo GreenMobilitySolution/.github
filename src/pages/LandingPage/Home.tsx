@@ -27,7 +27,7 @@ const Home = () => {
   return (
     <div className="relative text-baseBlack">
       <div className="hidden xmd:flex">
-        <CategoriesMenu />
+        {/* <CategoriesMenu /> */}
       </div>
       <div>
         <HeroSection />

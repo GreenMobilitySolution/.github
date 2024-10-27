@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { dummyCategories } from "../../../Database/Category/Categories";
+import SearchBar from "../Bars/SearchBar";
+
 interface CategoriesMenuProps {
   setShowMenu?: React.Dispatch<React.SetStateAction<any>>;
 }
@@ -18,8 +20,8 @@ const CategoriesMenu = ({ setShowMenu }: CategoriesMenuProps) => {
     const categoryArray = Object.keys(categories).map((category) => {
       const style =
         currentCategory.toLowerCase() === category.toLowerCase()
-          ? "bg-green-500 text-white"
-          : "hover:bg-green-500 hover:text-white";
+          ? "border-b-2 border-black pb-1"
+          : "hover:border-b-2 hover:border-gray-300 pb-1";
 
       return (
         <a
@@ -46,6 +48,13 @@ const CategoriesMenu = ({ setShowMenu }: CategoriesMenuProps) => {
   };
 
   const categoryHandler = (event: any, category: string) => {
+    if (category === 'Ahabanza' || category === 'Home') {
+      if (setShowMenu) {
+        setShowMenu(false);
+      }
+      navigate("/");
+      return;
+    }
     setCurrentCategory(category);
     if (setShowMenu) {
       setShowMenu(false);
@@ -58,12 +67,15 @@ const CategoriesMenu = ({ setShowMenu }: CategoriesMenuProps) => {
       {" "}
       {/* Increased font size */}
       <p
-        onClick={(event) => categoryHandler(event, "Ingendo")}
-        className={`${!currentCategory ? "bg-green-500 text-white" : "hover:bg-green-500 hover:text-white"} cursor-pointer px-2 py-1 rounded text-lg`} // Increased font size
+        onClick={(event) => categoryHandler(event, "Ahabanza")}
+        className={`${!currentCategory ? "border-b-2 border-black pb-1" : "hover:border-b-2 hover:border-gray-300 pb-1"} cursor-pointer px-2 py-1 rounded text-lg`} // Increased font size
       >
-        Ingendo
+        Ahabanza
       </p>
       {displayedCategories}
+      <div className="hidden lg:flex items-center">
+        <SearchBar />
+      </div>
     </nav>
   );
 };

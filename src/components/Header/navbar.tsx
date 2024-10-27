@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { Search } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import DesktopMenu from "../Menu/DesktopMenu";
 import CategoriesMenu from "../Menu/CategoriesMenu";
+import { Search } from 'lucide-react';
 import {
   closeIconUrl,
   logoUrl,
@@ -13,7 +13,6 @@ import {
 function Navbar() {
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
@@ -27,22 +26,6 @@ function Navbar() {
     setShowDesktopMenu((prevData) => !prevData);
   };
 
-  const handleSearchInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setSearchTerm(event.target.value);
-  };
-
-  const handleSearchSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    if (event.key === "Enter") {
-      navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
-    }
-  };
-
-  const handleSearch = () => {
-    navigate(`/search?query=${encodeURIComponent(searchTerm)}`);
-  };
-
   return (
     <nav
       className={`relative z-50 w-full min-h-[10vh] h-auto flex items-center justify-between xmd:flex-row xmd:justify-between bg-white px-6 lg:px-12 py-5 sticky top-0 shadow-navbar text-baseBlack`}
@@ -53,32 +36,16 @@ function Navbar() {
         onClick={() => {
           navigate("/");
         }}
-        className="cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
+        className="hover:cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
       >
         <img src={logoUrl} alt="Mobylife Logo" className="w-auto h-12" />{" "}
-        {/* Increased logo size */}
+        MobyLife
       </h1>
 
-      <div className="hidden lg:w-[40%] xmd:w-[40%] min-h-10 xmd:flex items-center justify-between gap-x-1 px-4 py-2 border border-neutrals500 bg-white rounded-3xl">
-        <input
-          className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-base placeholder-grey2"
-          type="text"
-          id="searchInput"
-          placeholder="search for anything"
-          value={searchTerm}
-          onChange={handleSearchInputChange}
-          onKeyDown={handleSearchSubmit}
-          data-testid="searchInput"
-        />
-        <Search
-          onClick={handleSearch}
-          strokeWidth={1.5}
-          className="text-orange cursor-pointer"
-        />
-      </div>
+      <CategoriesMenu />
 
       <div className="xmd:hidden flex gap-5" data-testid="userIcon">
-        <Search strokeWidth={1.5} className="w-10 h-9 text-black" />
+        <Search strokeWidth={1.5} className="w-12 h-12 text-black" />
         <img
           onClick={() => setShowMenu((prevState) => !prevState)}
           src={menuIconUrl}
@@ -101,7 +68,7 @@ function Navbar() {
             />
           </div>
           <div className="flex flex-col gap-3 items-center">
-            <CategoriesMenu setShowMenu={setShowMenu} />
+            {/* <CategoriesMenu setShowMenu={setShowMenu} /> */}
           </div>
         </div>
       )}
