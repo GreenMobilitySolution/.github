@@ -28,5 +28,12 @@ export let users = [
     "email": "passenger2@example.com",
     "phoneNumber": "0788302148",
     "password": "Passenger@456"
+  },
+  {
+    "id": "4",
+    "userType": "companyDriver",
+    "email": "company-driver2@example.com",
+    "phoneNumber": "0788302148",
+    "password": "company-driver@456"
   }
 ]

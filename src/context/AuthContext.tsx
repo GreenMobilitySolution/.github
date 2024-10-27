@@ -59,6 +59,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       navigate('/driver-dashboard');
     } else if (user.userType === 'Passenger') {
       navigate('/passenger-dashboard');
+    } else if (user.userType === 'companyDriver') {
+      navigate('/company-driver-dashboard');
     } else if (user.companyName) {
       navigate('/company-dashboard');
     } else {

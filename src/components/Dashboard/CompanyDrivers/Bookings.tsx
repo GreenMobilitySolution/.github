@@ -96,6 +96,24 @@ const CompanyDriverBookings: React.FC = () => {
         </div>
       </div>
 
+    {/* Passenger E-Ticket Scanning and Verification */}
+      <div className="mb-5 rounded-lg border border-gray-200 p-4">
+        <h3 className="text-xl font-medium mb-4">E-Ticket Scanning and Verification Detail</h3>
+        {scanning ? (
+          <div id={qrCodeRegionId} style={{ width: '100%' }} />
+        ) : (
+          <div
+            className="mb-4"
+          >
+            
+          </div>
+        )}
+        <div className="bg-white p-4 rounded-lg shadow-md">
+          <h4 className="font-semibold">Ticket Verification Status</h4>
+          <p>{scanResult ? `Ticket Data: ${scanResult}` : 'No ticket scanned yet.'}</p>
+        </div>
+      </div>
+
       {/* Route Status Summary */}
       <div className="mb-5 rounded-lg border border-gray-200 p-4">
         <h3 className="text-xl font-medium mb-4">Route Status: {routeStatus}</h3>
@@ -108,7 +126,7 @@ const CompanyDriverBookings: React.FC = () => {
           <span className="text-lg">Total: {filteredPassengerList.length}</span>
         </h3>
         <div className="flex justify-between mb-4">
-          <div className="relative">
+          <div className="relative ">
             <input
               type="text"
               placeholder="Search passengers..."
@@ -182,25 +200,6 @@ const CompanyDriverBookings: React.FC = () => {
             <h4 className="font-semibold">Seat Allocation</h4>
             {/* Add seat allocation details here */}
           </div>
-        </div>
-      </div>
-
-      {/* Passenger E-Ticket Scanning and Verification */}
-      <div className="mb-5 rounded-lg border border-gray-200 p-4">
-        <h3 className="text-xl font-medium mb-4">Passenger E-Ticket Scanning and Verification</h3>
-        {scanning ? (
-          <div id={qrCodeRegionId} style={{ width: '100%' }} />
-        ) : (
-          <button
-            className="bg-green-500 text-white py-2 px-4 rounded-lg flex items-center mb-4"
-            onClick={() => setScanning(true)}
-          >
-            Scan Ticket
-          </button>
-        )}
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h4 className="font-semibold">Ticket Verification Status</h4>
-          <p>{scanResult ? `Ticket Data: ${scanResult}` : 'No ticket scanned yet.'}</p>
         </div>
       </div>
 
