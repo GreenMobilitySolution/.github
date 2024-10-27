@@ -151,7 +151,7 @@ const CompanyDriverOverview: React.FC = () => {
       {/* Driver Action Bar */}
       <div className="bg-white shadow-md p-6 rounded-lg flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold text-gray-800">Driver Overview</h2>
-        <button className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+        <button className="bg-green-500 text-white py-2 px-6 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
           Performance Review
         </button>
       </div>

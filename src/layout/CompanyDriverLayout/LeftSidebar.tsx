@@ -10,8 +10,8 @@ const LeftSidebar: React.FC = () => {
         <nav className="flex flex-col gap-4">
           <NavItem to="company-overview" icon={<BarChart className="w-6 h-6" />} label="Overview" />
           <NavItem to="company-driver-bookings" icon={<Calendar className="w-6 h-6" />} label="Bookings" />
-          <NavItem to="fleet-management" icon={<Truck className="w-6 h-6" />} label="Vehicles" />
           <NavItem to="company-driver-routes" icon={<Map className="w-6 h-6" />} label="Routes" />
+          <NavItem to="fleet-management" icon={<Truck className="w-6 h-6" />} label="Vehicles" />         
           <NavItem to="manager-payment" icon={<CreditCard className="w-6 h-6" />} label="Payments" />
           <NavItem to="inbox" icon={<Inbox className="w-6 h-6" />} label="Inbox" />        
           <NavItem to="service-performance" icon={<Map className="w-6 h-6" />} label="Performance" />

@@ -126,12 +126,12 @@ const Router = () => {
       <Route
         path="/driver-dashboard"
         element={
-          <MainLayout>
+          <>
             <PageTitle title="MobyLife | Driver dashboard" />
             <SecuredRoutes allowedRoles={["Driver"]}>
               <DriverDashboard />
             </SecuredRoutes>
-          </MainLayout>
+          </>
         }
       />
 
