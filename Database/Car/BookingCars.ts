@@ -1,10 +1,10 @@
 import { carUrl } from '../../src/assets/images/images';
-import { Car } from '../../lib';
+import { Car } from '../../src/types';
 export const companyCars: Car[] = [
     {
       id: "1",
       type: "company",
-      name: "Company Car 1",
+      name: "KBS",
       logo: carUrl,
       availableTimeSlots: [
         { time: "08:00 AM", seats: 10 },
@@ -14,7 +14,7 @@ export const companyCars: Car[] = [
     {
       id: "2",
       type: "company",
-      name: "Company Car 2",
+      name: "RTCO",
       logo: carUrl,
       availableTimeSlots: [
         { time: "09:00 AM", seats: 8 },
@@ -34,7 +34,7 @@ export const companyCars: Car[] = [
     {
       id: "30",
       type: "company",
-      name: "Individual Car 1",
+      name: "RTCO",
       logo: carUrl,
       availableTimeSlots: [
         { time: "07:00 AM", seats: 4 },
@@ -54,7 +54,7 @@ export const companyCars: Car[] = [
     {
       id: "33",
       type: "company",
-      name: "Individual Car 1",
+      name: "RTCO",
       logo: carUrl,
       availableTimeSlots: [
         { time: "07:00 AM", seats: 4 },

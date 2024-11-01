@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { BusStopCardProps } from "../../../../lib";
+import { BusStopCardProps } from "../../../types";
 import { FaMapMarkerAlt, FaTicketAlt } from "react-icons/fa";
 import GreenButton from "../../Buttons/GreenButton";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
+import toast from "react-hot-toast";
 
 export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  
   const [selectedDirection, setSelectedDirection] = useState<string>("");
 
   const handleButtonClick = () => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      toast.error("Please login to book a trip");
+      navigate("/login");
+      return;
+    }
     navigate(`/bookings/select-car?direction=${selectedDirection}`);
   };
 
@@ -28,7 +38,10 @@ export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
           <div className="flex items-center mb-2">
             <FaTicketAlt className="text-blue-500 mr-2" />
             <p className="text-gray-700">
-              <span className="font-medium"><strong>Uva/Ujya:</strong></span> {route.from}
+              <span className="font-medium">
+                <strong>Uva/Ujya:</strong>
+              </span>{" "}
+              {route.from}
             </p>
           </div>
           <p className="text-green-700 mb-4">
@@ -37,7 +50,10 @@ export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
           <div className="flex items-center mb-2">
             <FaTicketAlt className="text-blue-500 mr-2" />
             <p className="text-gray-700">
-              <span className="font-medium"><strong>Uva/Ujya:</strong></span> {route.to}
+              <span className="font-medium">
+                <strong>Uva/Ujya:</strong>
+              </span>{" "}
+              {route.to}
             </p>
           </div>
           <p className="text-green-700">
@@ -57,7 +73,10 @@ export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
               onChange={(e) => setSelectedDirection(e.target.value)}
               className="mr-2"
             />
-            <label htmlFor={`direction-from-${busStop.id}`} className="text-gray-700">
+            <label
+              htmlFor={`direction-from-${busStop.id}`}
+              className="text-gray-700"
+            >
               <span className="font-medium">Uva/Ujya:</span> {route.from}
             </label>
           </div>
@@ -71,8 +90,11 @@ export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
               onChange={(e) => setSelectedDirection(e.target.value)}
               className="mr-2"
             />
-            <label htmlFor={`direction-to-${busStop.id}`} className="text-gray-700">
-            <span className="font-medium">Uva/Ujya:</span> {route.to}
+            <label
+              htmlFor={`direction-to-${busStop.id}`}
+              className="text-gray-700"
+            >
+              <span className="font-medium">Uva/Ujya:</span> {route.to}
             </label>
           </div>
         </div>

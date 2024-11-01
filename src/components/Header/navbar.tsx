@@ -9,6 +9,7 @@ import {
   menuIconUrl,
   userIconUrl,
 } from "../../assets/images/images";
+import { FaUserCircle } from "react-icons/fa";
 
 function Navbar() {
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
@@ -17,7 +18,6 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user is logged in (this is a placeholder, replace with actual logic)
     const user = localStorage.getItem("user");
     setIsLoggedIn(!!user);
   }, []);
@@ -28,7 +28,7 @@ function Navbar() {
 
   return (
     <nav
-      className={`relative z-50 w-full min-h-[10vh] h-auto flex items-center justify-between xmd:flex-row xmd:justify-between bg-white px-6 lg:px-12 py-5 sticky top-0 shadow-navbar text-baseBlack`}
+      className="relative z-50 w-full min-h-[10vh] h-auto flex items-center justify-between bg-white px-6 lg:px-12 py-5 sticky top-0 shadow-md text-baseBlack"
       data-testid="navbar"
     >
       <h1
@@ -36,7 +36,7 @@ function Navbar() {
         onClick={() => {
           navigate("/");
         }}
-        className="hover:cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-medium text-xl"
+        className="hover:cursor-pointer inline-flex items-center justify-start gap-x-2 text-primary capitalize font-semibold text-2xl"
       >
         <img src={logoUrl} alt="Mobylife Logo" className="w-auto h-12" />{" "}
         MobyLife
@@ -45,11 +45,11 @@ function Navbar() {
       <CategoriesMenu />
 
       <div className="xmd:hidden flex gap-5" data-testid="userIcon">
-        <Search strokeWidth={1.5} className="w-12 h-12 text-black" />
+        <Search strokeWidth={1.5} className="w-8 h-8 text-gray-700 hover:text-blue-500 transition duration-300" />
         <img
           onClick={() => setShowMenu((prevState) => !prevState)}
           src={menuIconUrl}
-          className="w-9 h-9"
+          className="w-8 h-8 cursor-pointer"
           alt="Menu Icon"
           data-testid="menuIcon"
         />
@@ -57,7 +57,7 @@ function Navbar() {
 
       {showMenu && (
         <div
-          className={`absolute top-20 left-0 w-[100%] bg-slate-100 h-[500px] p-6 flex flex-col gap-6`}
+          className="absolute top-20 left-0 w-full bg-white shadow-lg h-auto p-6 flex flex-col gap-6"
           data-testid="mobileMenu"
         >
           <div className="flex justify-between">
@@ -65,6 +65,7 @@ function Navbar() {
               onClick={() => setShowMenu(false)}
               src={closeIconUrl}
               alt="Close Icon"
+              className="w-8 h-8 cursor-pointer"
             />
           </div>
           <div className="flex flex-col gap-3 items-center">
@@ -73,19 +74,14 @@ function Navbar() {
         </div>
       )}
 
-      <div className="hidden xmd:flex items-center justify-end sm:gap-x-5 lg:gap-x-10">
+      <div className="hidden xmd:flex items-center justify-end gap-x-5 lg:gap-x-10">
         {isLoggedIn ? (
           <div
             onClick={desktopMenuHandler}
             className="relative cursor-pointer"
             data-testid="desktopMenuIcon"
           >
-            <img
-              src={userIconUrl}
-              alt="Profile Icon"
-              className="w-7 h-7"
-              data-testid="profileIcon"
-            />
+            <FaUserCircle className="w-10 h-14 rounded-full text-gray-400" />
           </div>
         ) : (
           <div
@@ -94,17 +90,17 @@ function Navbar() {
             data-testid="getStartedIcon"
           >
             <button
-              className="bg-green-500 text-white px-4 py-2 rounded-3xl"
+              className="w-auto bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
               data-testid="getStartedButton"
             >
-              Get Started
+              Kora konte
             </button>
           </div>
         )}
       </div>
       {showDesktopMenu && (
         <div
-          className="absolute top-[130px] right-[25%] xmd:right-6 xmd:top-[12vh]"
+          className="absolute top-[130px] right-[25%] xmd:right-6 xmd:top-[12vh] bg-white shadow-lg rounded-lg p-4"
           onClick={() => setShowDesktopMenu(false)}
         >
           <DesktopMenu />

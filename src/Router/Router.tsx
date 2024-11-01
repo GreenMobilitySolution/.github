@@ -15,7 +15,6 @@ import RegisterDriver from "../pages/Authentication/RegisterDriver";
 import RegisterPassenger from "../pages/Authentication/RegisterPassenger";
 import Login from "../pages/Authentication/Login";
 import DriverDashboard from "../pages/Dashboards/CompanyDriverDashboard";
-import PassengerDashboard from "../pages/Dashboards/PassengerDashboard";
 import CompanyDashboard from "../pages/Dashboards/CompanyDashboard";
 import NotAllowed from "./NotAllowed";
 import SecuredRoutes from "../components/Security/SecuredRoutes";
@@ -33,6 +32,16 @@ import CompanyDriverOverview from '../components/Dashboard/CompanyDrivers/Overvi
 import CompanyDriverDashboard from "../pages/Dashboards/CompanyDriverDashboard";
 import CompanyDriverRoutes from '../components/Dashboard/CompanyDrivers/Routes';
 import CompanyDriverBookings from '../components/Dashboard/CompanyDrivers/Bookings';
+import BookCarPage from "../pages/Bookings/BookCarPage";
+import FavoritePage from "../pages/FavoritePage/FavoritePage";
+import Profile from "../pages/Account/Profile";
+import Trips from "../pages/Account/Trips";
+import CarsPage from "../pages/Cars/Cars";
+import PassengerAccount from "../pages/Account/Account";
+import AboutUsPage from "../pages/AboutUs/AboutAs";
+import ServicesPage from "../pages/Services/Service";
+import ContactUsPage from "../pages/Contact/Contact";
+import PrivacyPolicyPage from "../pages/PrivacyPolicy/Privacy";
 
 const Router = () => {
   const location = useLocation();
@@ -108,7 +117,19 @@ const Router = () => {
         element={
           <MainLayout>
             <PageTitle title="MobyLife | Profile" />
-            <Navigate to="/" />
+            <Profile />
+          </MainLayout>
+        }
+      />
+
+    <Route
+        path="/favorite"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Favorite" />
+            <SecuredRoutes allowedRoles={["Passenger"]}>
+            <FavoritePage />
+            </SecuredRoutes>
           </MainLayout>
         }
       />
@@ -136,12 +157,24 @@ const Router = () => {
       />
 
       <Route
-        path="/passenger-dashboard"
+        path="/account"
         element={
           <MainLayout>
             <PageTitle title="MobyLife | Passenger account" />
             <SecuredRoutes allowedRoles={["Passenger"]}>
-              <PassengerDashboard />
+              <PassengerAccount />
+            </SecuredRoutes>
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/user-trips"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Passenger account" />
+            <SecuredRoutes allowedRoles={["Passenger"]}>
+              <Trips />
             </SecuredRoutes>
           </MainLayout>
         }
@@ -198,6 +231,15 @@ const Router = () => {
         }
       />
 
+    <Route
+        path="/book/car"
+        element={
+          <MainLayout>
+            <BookCarPage />
+          </MainLayout>
+        }
+      />
+
       <Route
         path="/bookings/select-car"
         element={
@@ -222,6 +264,57 @@ const Router = () => {
           <MainLayout>
             <PageTitle title="MobyLife | Search" />
             <SearchPage />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/cars"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Cars" />
+            <CarsPage />
+          </MainLayout>
+        }
+      />
+
+      {/* QUICK LINKS */}
+      <Route
+        path="/aboutUs"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | About Us" />
+            <AboutUsPage />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/services"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Our Services" />
+            <ServicesPage />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/contact"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Contact us" />
+            <ContactUsPage />
+          </MainLayout>
+        }
+      />
+
+      <Route
+        path="/privacy"
+        element={
+          <MainLayout>
+            <PageTitle title="MobyLife | Privacy Policy" />
+            <PrivacyPolicyPage />
           </MainLayout>
         }
       />

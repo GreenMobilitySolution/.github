@@ -9,6 +9,7 @@ import {
 } from "../../assets/images/images";
 import CategoriesMenu from '../Menu/CategoriesMenu';
 import DesktopMenu from '../Menu/DesktopMenu';
+import { FaUserCircle } from 'react-icons/fa';
 
 const CompanyHeader: React.FC = () => {
     const [showDesktopMenu, setShowDesktopMenu] = useState(false);
@@ -17,7 +18,6 @@ const CompanyHeader: React.FC = () => {
     const navigate = useNavigate();
   
     useEffect(() => {
-      // Check if the user is logged in (this is a placeholder, replace with actual logic)
       const user = localStorage.getItem("user");
       setIsLoggedIn(!!user);
     }, []);
@@ -87,12 +87,7 @@ const CompanyHeader: React.FC = () => {
             className="relative cursor-pointer"
             data-testid="desktopMenuIcon"
           >
-            <img
-              src={userIconUrl}
-              alt="Profile Icon"
-              className="w-7 h-7"
-              data-testid="profileIcon"
-            />
+          <FaUserCircle className="w-10 h-14 rounded-full text-gray-400" />
           </div>
         ) : (
           <div

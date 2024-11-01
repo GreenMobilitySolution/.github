@@ -5,15 +5,17 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import RegisterButton from '../../components/Buttons/RegisterButton';
+import { ToastContainer } from 'react-toastify';
 
 interface RegisterCompanyData {
   id?: string;
-  companyName: string;
+  name: string;
   email: string;
   phoneNumber: string;
   address: string;
   tin: string;
   password: string;
+  role: string;
 }
 
 const RegisterCompany: React.FC = () => {
@@ -32,11 +34,21 @@ const RegisterCompany: React.FC = () => {
   const onSubmit: SubmitHandler<RegisterCompanyData> = async (data) => {
     setLoading(true);
     try {
-      const response = await axios.post('/api/register-company', data);
+      const API_BASE_URL = (import.meta as any).env.VITE_REACT_APP_API_BASE_URL;
+
+      if (!API_BASE_URL) {
+       toast.error('Backend URL is not available');
+       return;
+      }
+      data.role = 'Manager';
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, data);
+      if (response.status === 200){
       toast.success(response.data.message);
       reset();
       navigate('/login');
+      }
     } catch (error: any) {
+      console.log(error);
       const errorMessage = error.response?.data?.message || 'Something went wrong, please try again.';
       toast.error(errorMessage);
     } finally {
@@ -57,7 +69,8 @@ const RegisterCompany: React.FC = () => {
   );
 
   return (
-    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4 bg-transparent1">
+    <div className="min-h-[100vh] h-auto w-full flex items-center justify-center py-10 px-4 bg-gray-100">
+      <ToastContainer />
       <form
         className="min-w-[90%] flex flex-col items-center justify-start gap-y-4 bg-white p-12 md:min-w-[500px] md:max-w-[500px] rounded-lg shadow-lg"
         onSubmit={handleSubmit(onSubmit)}
@@ -71,10 +84,10 @@ const RegisterCompany: React.FC = () => {
               className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
               type="text"
               placeholder="Company Name"
-              {...register('companyName', { required: true })}
+              {...register('name', { required: true })}
             />
           </div>
-          {errors.companyName && <span className="text-orange">Company name is required</span>}
+          {errors.name && <span className="text-orange">Company name is required</span>}
         </div>
 
         <div className="w-full flex flex-col items-start justify-start gap-y-2">
