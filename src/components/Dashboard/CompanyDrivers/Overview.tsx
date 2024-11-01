@@ -12,7 +12,7 @@ import {
   LineElement,
   ArcElement,
 } from "chart.js";
-import CompanyGetStarted from "../../../layout/CompanyAdminLayout/CompanyGetStarted";
+import CompanyGetStarted from "../../../layout/Dashboards/CompanyAdminLayout/CompanyGetStarted";
 
 ChartJS.register(
   CategoryScale,
@@ -158,7 +158,9 @@ const CompanyDriverOverview: React.FC = () => {
 
       {/* Shift Summary */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Shift Summary</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Shift Summary
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
             <p className="text-lg font-medium text-gray-600">Start Time</p>
@@ -169,30 +171,42 @@ const CompanyDriverOverview: React.FC = () => {
             <p className="text-xl font-semibold text-gray-800">4:00 PM</p>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
-            <p className="text-lg font-medium text-gray-600">Route Assignment</p>
+            <p className="text-lg font-medium text-gray-600">
+              Route Assignment
+            </p>
             <p className="text-xl font-semibold text-gray-800">Route 1</p>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
             <p className="text-lg font-medium text-gray-600">Breaks</p>
-            <p className="text-xl font-semibold text-gray-800">12:00 PM - 12:30 PM</p>
+            <p className="text-xl font-semibold text-gray-800">
+              12:00 PM - 12:30 PM
+            </p>
           </div>
         </div>
       </div>
 
       {/* Performance Metrics */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Performance Metrics</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Performance Metrics
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">On-Time Arrivals</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              On-Time Arrivals
+            </h4>
             <Bar data={onTimeArrivalsData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Customer Ratings</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Customer Ratings
+            </h4>
             <Pie data={customerRatingsData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Driving Efficiency</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Driving Efficiency
+            </h4>
             <Line data={drivingEfficiencyData} />
           </div>
         </div>
@@ -200,18 +214,26 @@ const CompanyDriverOverview: React.FC = () => {
 
       {/* Route Summary */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Route Summary</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Route Summary
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Total Routes Completed</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Total Routes Completed
+            </h4>
             <Bar data={totalRoutesData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Most Frequent Route</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Most Frequent Route
+            </h4>
             <Pie data={mostFrequentRouteData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Top Stops</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Top Stops
+            </h4>
             <Bar data={topStopsData} />
           </div>
         </div>
@@ -219,14 +241,20 @@ const CompanyDriverOverview: React.FC = () => {
 
       {/* Safety and Compliance Summary */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Safety and Compliance Summary</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Safety and Compliance Summary
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Incident-Free Days</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Incident-Free Days
+            </h4>
             <Bar data={incidentFreeDaysData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Training and Compliance</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Training and Compliance
+            </h4>
             <Pie data={trainingComplianceData} />
           </div>
         </div>
@@ -234,14 +262,20 @@ const CompanyDriverOverview: React.FC = () => {
 
       {/* Shift and Break Analysis */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Shift and Break Analysis</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Shift and Break Analysis
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Average Shift Duration</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Average Shift Duration
+            </h4>
             <Bar data={shiftDurationData} />
           </div>
           <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
-            <h4 className="text-lg font-medium text-gray-600 mb-2">Break Adherence</h4>
+            <h4 className="text-lg font-medium text-gray-600 mb-2">
+              Break Adherence
+            </h4>
             <Bar data={breakAdherenceData} />
           </div>
         </div>
@@ -249,14 +283,22 @@ const CompanyDriverOverview: React.FC = () => {
 
       {/* Upcoming Assignments */}
       <div className="mb-6 p-6 bg-white rounded-lg shadow-md">
-        <h3 className="text-2xl font-semibold mb-4 text-gray-800">Upcoming Assignments</h3>
+        <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          Upcoming Assignments
+        </h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
-            <p className="text-lg font-medium text-gray-600">Next Scheduled Shift</p>
-            <p className="text-xl font-semibold text-gray-800">Tomorrow, 8:00 AM - 4:00 PM</p>
+            <p className="text-lg font-medium text-gray-600">
+              Next Scheduled Shift
+            </p>
+            <p className="text-xl font-semibold text-gray-800">
+              Tomorrow, 8:00 AM - 4:00 PM
+            </p>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">
-            <p className="text-lg font-medium text-gray-600">Assigned Vehicle</p>
+            <p className="text-lg font-medium text-gray-600">
+              Assigned Vehicle
+            </p>
             <p className="text-xl font-semibold text-gray-800">Bus A</p>
           </div>
           <div className="bg-gray-50 p-4 rounded-lg shadow-sm">

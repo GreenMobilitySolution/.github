@@ -1,6 +1,7 @@
 import { CarType } from "../Car/carType";
 
 export interface Company {
+    [x: string]: any;
     name: string;
     NumberOfRoutes: number;
     logo: string;

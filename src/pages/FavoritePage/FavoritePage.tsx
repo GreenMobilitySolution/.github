@@ -1,71 +1,73 @@
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { PropagateLoader } from 'react-spinners';
+import ClientRouteCard from '../../components/Cards/ClientRouteCard';
+import ConfirmDeletePopup from '../../components/PopUps/ConfirmDeletePopup';
 
 function FavoritePage() {
-  const [FavoriteProducts, setFavoriteProducts] = useState<JSX.Element[]>([]);
+  const [favoriteRoutes, setFavoriteRoutes] = useState<JSX.Element[]>([]);
   const [loading, setLoading] = useState(true);
-  const [products, setProducts] = useState<any[]>([]); // Replace `any` with the appropriate type for your products
+  const [routes, setRoutes] = useState<any[]>([]); // Replace `any` with the appropriate type for your routes
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
-    // Simulate fetching Favorite products
+    // Simulate fetching favorite routes
     const fetchData = async () => {
       try {
         // Simulate a delay
         await new Promise((resolve) => setTimeout(resolve, 1000));
-        // Set dummy products
-        const dummyProducts = [
-          { productInfo: { name: 'Product 1', price: 100 } },
-          { productInfo: { name: 'Product 2', price: 200 } },
+        // Set dummy routes
+        const dummyRoutes = [
+          { routeInfo: { from: 'Nyabugogo', to: 'Downtown', price: 100 } },
+          { routeInfo: { from: 'Kimironko', to: 'Gikondo', price: 200 } },
         ];
-        setProducts(dummyProducts);
+        setRoutes(dummyRoutes);
         setLoading(false);
       } catch (error) {
-        toast.error('Failed to fetch Favorite');
+        toast.error('Failed to fetch favorite routes');
       }
     };
     fetchData();
   }, []);
 
   useEffect(() => {
-    const productCards: JSX.Element[] = [];
-    products.forEach((product, index) => {
-      productCards.push(<ClientProductCard product={product.productInfo} key={index} />);
+    const routeCards: JSX.Element[] = [];
+    routes.forEach((route, index) => {
+      routeCards.push(<ClientRouteCard route={route.routeInfo} key={index} />);
     });
-    setFavoriteProducts(productCards);
-  }, [products]);
+    setFavoriteRoutes(routeCards);
+  }, [routes]);
 
   const clearAll = () => {
-    setProducts([]);
-    setFavoriteProducts([]);
+    setRoutes([]);
+    setFavoriteRoutes([]);
   };
 
   return (
-    <div className="text-black flex justify-center">
+    <div className="text-black py-10 px-6 bg-gray-100 flex justify-center">
       <div className="w-[90%] p-4 flex flex-col min-h-[480px]">
         <div className="flex justify-between items-center mb-8 xmd:px-8">
-          {products.length > 0 && <h2 className="font-medium text-[25px]">Favorite</h2>}
-          {products.length > 1 && (
+          {routes.length > 0 && <h2 className="font-medium text-[25px]">Favorite Routes</h2>}
+          {routes.length > 1 && (
             <div>
               <ConfirmDeletePopup
                 trigger={<p className=" text-[16px] hover:underline cursor-pointer">Clear All</p>}
-                title={`Confirm removing all products from your Favorite`}
-                body={`Are you sure you want to remove all products from your Favorite?`}
+                title={`Confirm removing all routes from your favorites`}
+                body={`Are you sure you want to remove all routes from your favorites?`}
                 onSubmit={clearAll}
               />
             </div>
           )}
         </div>
-        {!loading && FavoriteProducts.length > 0 && (
-          <div className="w-full flex gap-y-10 justify-center flex-wrap gap-x-3 px-6 xmd:px-0">{FavoriteProducts}</div>
+        {!loading && favoriteRoutes.length > 0 && (
+          <div className="w-full flex gap-y-10 justify-center flex-wrap gap-x-3 px-6 xmd:px-0">{favoriteRoutes}</div>
         )}
 
-        {!loading && products.length === 0 && (
-          <p className="text-[20px] font-medium self-center">Your Favorite is empty.</p>
+        {!loading && routes.length === 0 && (
+          <p className="text-[20px] font-medium self-center">Your favorite routes list is empty.</p>
         )}
 
         {loading && (

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { RouteForGare } from "../../../../lib";
+import { RouteForGare } from "../../../../types";
 
 export const RouteForGareCard = (routes: RouteForGare) => {
   return (

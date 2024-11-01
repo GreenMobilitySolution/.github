@@ -1,8 +1,8 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header/DashboardHeader";
-import LeftSidebar from "../../layout/CompanyAdminLayout/LeftSidebar";
-import RightSidebar from "../../layout/CompanyAdminLayout/RightSidebar";
+import LeftSidebar from "../../layout/Dashboards/CompanyAdminLayout/LeftSidebar";
+import RightSidebar from "../../layout/Dashboards/CompanyAdminLayout/RightSidebar";
 
 const CompanyDashboard: React.FC = () => {
   return (

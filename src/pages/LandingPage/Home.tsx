@@ -39,11 +39,11 @@ const Home = () => {
       />
       {/* Rwanda Sides Transportation */}
       <CategoryGareSection Routes={routes} CategoryTitle="Ingendo zo Muntara" />
-      <div className="flex flex-col mb-5 items-center gap-5">
+      <div className="w-full flex flex-col mb-5 items-center gap-5">
         <h1 className="text-2xl mb-5 mt-5 font-medium">
           Reba icyo abakoresha iyi systeme bayivugaho!
         </h1>
-        <div className="flex flex-wrap mb-5 justify-center gap-4">
+        <div className="w-[85%] flex flex-wrap mb-5 justify-center gap-10">
           {loadingFeedback ? (
             <div
               className="w-full flex justify-center px-6 py-20"

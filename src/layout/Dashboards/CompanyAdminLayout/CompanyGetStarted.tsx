@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
 import {
   BarChart,
   Users,
@@ -12,7 +11,7 @@ import {
   ClipboardList,
   Map,
 } from "lucide-react";
-import DashboardCard from "../../components/Cards/Dashboard/DashboardCard";
+import DashboardCard from "../../../components/Cards/Dashboard/DashboardCard";
 
 const CompanyGetStarted: React.FC = () => {
   return (
