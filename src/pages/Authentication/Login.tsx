@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
-import { LoginData } from "../../../types/auth/loginData";
+import { LoginData } from "../../types/auth/loginData";
 import { googleIcon } from "../../assets/images/images";
 
 function Login() {
@@ -25,15 +25,19 @@ function Login() {
     setLoading(true);
     setError(null);
     try {
-      await login(userData.email, userData.password);
-      toast.success("Login successful", {
+      const isLoggedIn = await login(userData.email, userData.password);
+      
+      if (isLoggedIn) {
+        console.log("Logged in successful: ", isLoggedIn);
+        toast.success("Logged in successful", {
         duration: 4000,
       });
       reset();
+    }
     } catch (err) {
       const errorMessage =
         err instanceof Error
-          ? err.message
+          ? 'Invalid credentials.'
           : "Something went wrong, please try again.";
       setError(errorMessage);
       toast.error(errorMessage, {
@@ -120,7 +124,7 @@ function Login() {
 
         <p className="text-small  text-grey2">
           {"Don't have an account? "}
-          <Link to="/register" className="ml-1 text-orange">
+          <Link to="/get-started" className="ml-1 text-orange">
             Signup here
           </Link>
         </p>

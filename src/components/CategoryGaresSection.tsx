@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
 import { GareForCategoryCard } from "./Cards/GareCards/GareForCategoryCard";
-import { Gare, GareProp, RouteForGare } from "../../types";
+import { Gare, GareProp, RouteForGare } from "../types";
 import LoadButton from "./Buttons/LoadButton";
 
 export function CategoryGareSection(props: GareProp) {

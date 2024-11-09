@@ -9,6 +9,7 @@ import {
   menuIconUrl,
   userIconUrl,
 } from "../../assets/images/images";
+import { FaUserCircle } from "react-icons/fa";
 
 function Navbar() {
   const [showDesktopMenu, setShowDesktopMenu] = useState(false);
@@ -17,7 +18,6 @@ function Navbar() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check if the user is logged in (this is a placeholder, replace with actual logic)
     const user = localStorage.getItem("user");
     setIsLoggedIn(!!user);
   }, []);
@@ -81,12 +81,7 @@ function Navbar() {
             className="relative cursor-pointer"
             data-testid="desktopMenuIcon"
           >
-            <img
-              src={userIconUrl}
-              alt="Profile Icon"
-              className="w-8 h-8 rounded-full border border-gray-300 hover:border-blue-500 transition duration-300"
-              data-testid="profileIcon"
-            />
+            <FaUserCircle className="w-10 h-14 rounded-full text-gray-400" />
           </div>
         ) : (
           <div
@@ -95,10 +90,10 @@ function Navbar() {
             data-testid="getStartedIcon"
           >
             <button
-              className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
+              className="w-auto bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600 transition duration-300"
               data-testid="getStartedButton"
             >
-              Get Started
+              Kora konte
             </button>
           </div>
         )}

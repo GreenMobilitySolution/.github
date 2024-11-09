@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import StarRating from "../../rating/StarRating";
-import { Car } from "../../../../types";
+import { Car } from "../../../types";
 
 interface CarCardProps {
   car: Car;

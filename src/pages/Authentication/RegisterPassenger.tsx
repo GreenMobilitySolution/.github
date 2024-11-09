@@ -4,7 +4,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { RegisterData } from "../../../types/auth/signup";
+import { RegisterData } from "../../types/auth/signup";
 import RegisterButton from "../../components/Buttons/RegisterButton";
 
 function RegisterPassenger() {
@@ -25,11 +25,14 @@ function RegisterPassenger() {
   ) => {
     setLoading(true);
     try {
-      userData.userType = "Passenger";
-      const response = await axios.post("/register", userData);
-      toast.success(response.data.message);
-      reset();
-      navigate("/login");
+      const API_BASE_URL = (import.meta as any).env.VITE_REACT_APP_API_BASE_URL;
+      userData.role = "Passenger";
+      const response = await axios.post(`${API_BASE_URL}/auth/register`, userData);
+      if (response.status === 200){
+        toast.success(response.data.message);
+        reset();
+        navigate('/login');
+        }
     } catch (error: any) {
       const errorMessage =
         error.response?.data?.message ||
@@ -79,6 +82,19 @@ function RegisterPassenger() {
         <h1 className="min-w-[100%] text-black1 text-2xl font-medium">
           Sign up as Passenger
         </h1>
+
+        <div className="mt-2 w-full flex flex-col items-start justify-start gap-y-2">
+          <p className="text-black1 text-lg">User Name</p>
+          <div className="w-full min-h-[50px] flex items-center justify-between gap-x-1 px-4 py-2 border border-grey1 bg-white rounded-lg">
+            <input
+              className="w-full h-[100%] border-none outline-none bg-white text-grey2 text-lg rounded-lg"
+              type="text"
+              placeholder="Ndevu"
+              {...register('name', { required: true })}
+            />
+          </div>
+          {errors.name && <span className="text-orange">User name is required</span>}
+        </div>
 
         <div className="w-full flex flex-col items-start justify-start gap-y-2">
           <p className="text-black1 text-lg">Email Address</p>

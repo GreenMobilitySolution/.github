@@ -1,5 +1,5 @@
 import { carUrl } from '../../src/assets/images/images';
-import { Car } from '../../types';
+import { Car } from '../../src/types';
 export const companyCars: Car[] = [
     {
       id: "1",

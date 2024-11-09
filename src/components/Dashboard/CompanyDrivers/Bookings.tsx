@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Plus, Calendar, CheckCircle, XCircle, Filter, Search } from 'lucide-react';
 import { Line, Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend } from 'chart.js';
-import { Html5QrcodeScanner } from 'html5-qrcode';
+// import { Html5QrcodeScanner } from 'html5-qrcode';
 
 ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, BarElement, Title, Tooltip, Legend);
 
@@ -56,17 +56,17 @@ const CompanyDriverBookings: React.FC = () => {
     setScanning(false);
   };
 
-  useEffect(() => {
-    if (scanning) {
-      const html5QrCodeScanner = new Html5QrcodeScanner(
-        qrCodeRegionId, { fps: 10, qrbox: 250 }, /* verbose= */ false);
-      html5QrCodeScanner.render(handleScan, handleError);
+  // useEffect(() => {
+  //   if (scanning) {
+  //     const html5QrCodeScanner = new Html5QrcodeScanner(
+  //       qrCodeRegionId, { fps: 10, qrbox: 250 }, /* verbose= */ false);
+  //     html5QrCodeScanner.render(handleScan, handleError);
 
-      return () => {
-        html5QrCodeScanner.clear();
-      };
-    }
-  }, [scanning]);
+  //     return () => {
+  //       html5QrCodeScanner.clear();
+  //     };
+  //   }
+  // }, [scanning]);
 
   return (
     <div className="relative min-h-screen bg-gray-100 p-6">

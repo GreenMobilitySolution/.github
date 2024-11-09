@@ -1,14 +1,23 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import StarRating from "../../rating/StarRating";
-import { Company } from "../../../../types";
+import { Company } from "../../../types";
 import GreenButton from "../../Buttons/GreenButton";
-import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { useAuth } from "../../../context/AuthContext";
+import toast from "react-hot-toast";
 
 const CompanySection: React.FC<{ company: Company }> = ({ company }) => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
   const handleButtonClick = () => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      toast.error("Please login to book a trip");
+      navigate("/login");
+      return;
+    }
     navigate(`/book/car?company-name=${company.name}`);
   };
 
@@ -18,6 +27,7 @@ const CompanySection: React.FC<{ company: Company }> = ({ company }) => {
 
   return (
     <div className="bg-white shadow-lg rounded-md p-6 max-w-lg mx-auto">
+      <ToastContainer />
       <img
         src={company.logo}
         alt={company.name}
@@ -29,10 +39,10 @@ const CompanySection: React.FC<{ company: Company }> = ({ company }) => {
           <StarRating rating={company.rating} />
         </div>
         <div className="text-right">
-          <p className="text-l font-semibold text-gray-700">
+          <p className="text-l font-semibold text-yellow-900">
             {company.NumberOfRoutes} Routes
           </p>
-          <GreenButton handle={handleButtonClick}>Book</GreenButton>
+          <GreenButton handle={handleButtonClick}>Katisha itike!</GreenButton>
         </div>
       </div>
       <p className="text-gray-700 text-base mb-4">{company.description}</p>

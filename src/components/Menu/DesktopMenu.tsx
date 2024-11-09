@@ -22,6 +22,9 @@ function DesktopMenu() {
         <li className="hover:bg-neutral-300 pl-5 py-2 cursor-pointer" onClick={() => navigate('/profile')}>
           Umwirondoro
         </li>
+        <li className="hover:bg-neutral-300 pl-5 py-2 cursor-pointer" onClick={() => navigate('/account')}>
+          Konte yanjye
+        </li>
         <li className="hover:bg-neutral-300 pl-5 py-2 cursor-pointer" onClick={handleLogout}>
           Sohoka
         </li>

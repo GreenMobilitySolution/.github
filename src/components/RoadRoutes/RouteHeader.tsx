@@ -1,8 +1,11 @@
 import React from "react";
 import GreenButton from "../Buttons/GreenButton";
 import { useNavigate } from "react-router-dom";
-import { routes } from "../../../Database/GareRoutes";
+// import { routes } from "../../../Database/GareRoutes";
 import { busStops } from '../../../Database/BusStop/BusStops';
+import { useAuth } from "../../context/AuthContext";
+import toast from "react-hot-toast";
+import { Routes } from "../../../Database/models/Routes";
 
 interface Props {
     categoryTitle: string;
@@ -11,10 +14,17 @@ interface Props {
 
 const RouteHeader: React.FC<Props> = (props) => {
     const navigate = useNavigate();
-    const foundRoute = routes.find((route) => route.id === busStops[0]?.routeId);
+    const { isAuthenticated } = useAuth();
+    const foundRoute = Routes.find((route) => route.id === busStops[0]?.routeId);
 
     const handleButtonClick = () => {
-        navigate(`/bookings/select-car?price=${props.price}&direction=${foundRoute?.from}-${foundRoute?.to}`);
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+        toast.error("Please login to book a trip");
+        navigate("/login");
+        return;
+    }
+    navigate(`/bookings/select-car?price=${props.price}&direction=${foundRoute?.from}-${foundRoute?.to}`);
     };
 
     return (

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Gare, GareProp, RouteForGare } from "../../../types";
+import { Gare, GareProp, RouteForGare } from "../../types";
 import { CompanyForCategory } from "../Company/CompanyForCategory";
 import { SampleCompany } from "../../../Database/Company/company";
 import { CarList } from "./Car";
