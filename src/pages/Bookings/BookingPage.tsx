@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation, useNavigate } from "react-router-dom";
 import PageTitle from "../../components/PageTitle";
-import { Car, Package } from "../../../types";
+import { Car, Package } from "../../types";
 import { companyCars, individualCars } from "../../../Database/Car/BookingCars";
 import CarSelection from "../../components/Bookings/CarSelection";
 import PackageDetailsForm from "../../components/Forms/PackageDetailsForm";
 import PaymentOptions from "../../components/Bookings/PaymentOptions";
 import StudentDiscountForm from "../../components/Forms/StudentDiscountForm";
 import BookingSummary from "../../components/Bookings/BookingSummary";
+import  { useAuth } from "../../context/AuthContext";
+import toast from "react-hot-toast";
+import { ToastContainer } from "react-toastify";
+
 
 const BookingPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -16,6 +20,8 @@ const BookingPage = () => {
   const direction = queryParams.get("direction");
   const price = queryParams.get("price");
 
+  const navigate = useNavigate();
+  
   const [step, setStep] = useState(1);
   const [selectedCar, setSelectedCar] = useState<Car | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("");
@@ -29,6 +35,7 @@ const BookingPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [paymentOption, setPaymentOption] = useState<string>("");
   const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     if (selectedCar?.name !== "RTCO" && step === 2) {
@@ -53,6 +60,12 @@ const BookingPage = () => {
   };
 
   const handleChooseCar = (car: Car) => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      toast.error("Please login to book a trip");
+      navigate("/login");
+      return;
+    }
     setSelectedCar(car);
     if (selectedTimeSlot && selectedSeats > 0) {
       handleNextStep();
@@ -118,6 +131,7 @@ const BookingPage = () => {
     <>
       <PageTitle title={`MobyLife | ${direction}`} />
       <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
+        <ToastContainer />
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl transition-transform transform">
           {step === 1 && (
             <CarSelection

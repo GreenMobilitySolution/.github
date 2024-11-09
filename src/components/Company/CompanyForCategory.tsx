@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
 import LoadButton from "../Buttons/LoadButton";
 import CompanySection from "../Cards/Company/CompanyCar";
-import { Company } from "../../../types";
+import { Company } from "../../types";
 
 interface CompanyProp {
   companies: Company[];

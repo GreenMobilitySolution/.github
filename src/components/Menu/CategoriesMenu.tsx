@@ -55,6 +55,10 @@ const CategoriesMenu = ({ setShowMenu }: CategoriesMenuProps) => {
       navigate("/");
       return;
     }
+    if (category === 'Amamodoka' || category === 'Cars') {
+      navigate('/cars');
+      return;
+    }
     setCurrentCategory(category);
     if (setShowMenu) {
       setShowMenu(false);

@@ -1,6 +1,6 @@
 import React from "react";
 import GreenButton from "../../components/Buttons/GreenButton";
-import { Car, Package } from "../../../types";
+import { Car, Package } from "../../types";
 
 interface BookingSummaryProps {
   direction: string | null;

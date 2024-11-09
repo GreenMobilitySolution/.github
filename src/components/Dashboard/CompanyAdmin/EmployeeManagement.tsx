@@ -3,13 +3,17 @@ import { Plus, Search, Filter } from 'lucide-react';
 import { Bar, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement } from 'chart.js';
 import { employees, overallRatingData, recentPromotionsData, timeTrackingData, topPerformersData, underperformersData } from '../../../../Database/Employee/CompanyEmployee';
+import { FaUserCircle } from 'react-icons/fa';
+import { ToastContainer } from 'react-toastify';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, ArcElement);
 
 const EmployeeManagement: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newEmployee, setNewEmployee] = useState({
-    profile: '',
+   password: '',
     name: '',
     role: 'Driver',
     department: '',
@@ -24,15 +28,48 @@ const EmployeeManagement: React.FC = () => {
     setNewEmployee({ ...newEmployee, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Add the new employee to the employees array (this should be handled by your state management or backend)
-    console.log(newEmployee);
+    try {
+      const API_BASE_URL = (import.meta as any).env.VITE_REACT_APP_API_BASE_URL;
+
+      if (!API_BASE_URL) {
+      toast.error('Backend URL is not available');
+      return;
+      }
+      const token = localStorage.getItem('token');
+      
+      if (!newEmployee.address || !newEmployee.department || !newEmployee.email || !newEmployee.name || !newEmployee.password || !newEmployee.phone || !newEmployee.role || !newEmployee.status) {
+        toast.error('Please fill in all fields');
+        return;
+      }
+      const response = await axios.post(
+        `${API_BASE_URL}/staff/add`,
+        newEmployee,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
+        }
+      );
+
+      if (response.status === 200){
+        toast.success(response.data.message);
+        }
+
+    } catch (error: any) {
+      console.log(error);
+      const errorMessage = error.response?.data?.message || 'Something went wrong, please try again.';
+      toast.error(errorMessage);
+    }
+    console.log({newEmployee});
     setIsModalOpen(false);
   };
 
   return (
     <div className="relative min-h-screen bg-gray-100 p-6">
+      <ToastContainer />
       <div className='flex flex-row justify-between p-4 shadow-md bg-white gap-10 mb-5 justify-between'>
         <h2 className="text-2xl font-semibold">Employee Management</h2>
         <button
@@ -99,7 +136,7 @@ const EmployeeManagement: React.FC = () => {
           <table className="w-full bg-white border border-gray-300 table-auto">
             <thead className="bg-green-500">
               <tr>
-                <th className="px-4 py-2">Profile</th>
+                <th className="px-4 py-2">password</th>
                 <th className="px-4 py-2">Name</th>
                 <th className="px-4 py-2">Position</th>
                 <th className="px-4 py-2">Department</th>
@@ -111,7 +148,7 @@ const EmployeeManagement: React.FC = () => {
               {employees.map((employee, index) => (
                 <tr key={index} className="hover:bg-gray-100">
                   <td className="px-4 py-2">
-                    <img src={employee.profile} alt="Profile" className="w-10 h-10 rounded-full" />
+                    <FaUserCircle className="w-10 h-14 rounded-full text-gray-400" />
                   </td>
                   <td className="px-4 py-2">{employee.name}</td>
                   <td className="px-4 py-2">{employee.position}</td>
@@ -166,17 +203,7 @@ const EmployeeManagement: React.FC = () => {
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div className="mb-4">
-                  <label className="block text-gray-700">Profile Picture URL</label>
-                  <input
-                    type="text"
-                    name="profile"
-                    value={newEmployee.profile}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-2 border rounded-lg"
-                  />
-                </div>
-                <div className="mb-4">
-                  <label className="block text-gray-700">Name</label>
+                  <label className="block text-gray-700">Employee Name</label>
                   <input
                     type="text"
                     name="name"
@@ -186,7 +213,7 @@ const EmployeeManagement: React.FC = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <label className="block text-gray-700">Role</label>
+                  <label className="block text-gray-700">Employee Role</label>
                   <select
                     name="role"
                     value={newEmployee.role}
@@ -249,6 +276,16 @@ const EmployeeManagement: React.FC = () => {
                     type="text"
                     name="address"
                     value={newEmployee.address}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-2 border rounded-lg"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="block text-gray-700">Deafault password</label>
+                  <input
+                    type="text"
+                    name="password"
+                    value={newEmployee.password}
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border rounded-lg"
                   />

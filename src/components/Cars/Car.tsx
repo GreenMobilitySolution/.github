@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
 import LoadButton from "../Buttons/LoadButton";
 import CarCard from "../Cards/CarCard/CarCard";
-import { CarCardProps } from "../../../types/Car/CarProp";
+import { CarCardProps } from "../../types/Car/CarProp";
 
 interface CarProp {
   cars: CarCardProps[];

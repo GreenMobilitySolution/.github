@@ -13,7 +13,7 @@ const GetStarted: React.FC = () => {
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-6">
       <h1 className="text-3xl font-semibold mb-6">Get Started</h1>
       <p className="text-lg mb-6">How would you like to register?</p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid m-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
         <div
           className="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
           onClick={() => handleSelection('/register-company')}
@@ -28,13 +28,13 @@ const GetStarted: React.FC = () => {
           <FaUser className="text-5xl text-green-500 mb-6" />
           <h2 className="text-1xl font-medium">Passenger</h2>
         </div>
-        <div
+        {/* <div
           className="bg-white shadow-lg rounded-lg p-8 flex flex-col items-center cursor-pointer hover:shadow-xl transition-shadow"
           onClick={() => handleSelection('/register-driver')}
         >
           <FaCar className="text-5xl text-red-500 mb-6" />
           <h2 className="text-1xl font-medium">Private Driver</h2>
-        </div>
+        </div> */}
         {/* Add more options as needed */}
       </div>
       <div className="mt-5 flex flex-center items-center">

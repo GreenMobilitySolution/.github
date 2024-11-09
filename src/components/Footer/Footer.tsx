@@ -9,7 +9,7 @@ import {
 function Footer() {
   return (
     <div
-      className="mt-10 w-full flex flex-col items-center justify-start gap-y-4 py-8 bg-gray-900 text-white"
+      className="w-full flex flex-col items-center justify-start gap-y-4 py-8 bg-gray-900 text-white"
       data-testid="footer"
     >
       <div className="w-full md:w-[80%] flex flex-wrap items-start justify-between gap-x-6 p-4 md:p-0">
@@ -46,7 +46,7 @@ function Footer() {
         <div className="flex flex-col items-start justify-start gap-y-4 w-full md:w-auto mt-8 md:mt-0">
           <h2 className="text-lg font-semibold">Quick Links</h2>
           <ul className="flex flex-col gap-y-2">
-            <li><a href="/about" className="hover:underline">About Us</a></li>
+            <li><a href="/aboutUs" className="hover:underline">About Us</a></li>
             <li><a href="/services" className="hover:underline">Services</a></li>
             <li><a href="/contact" className="hover:underline">Contact</a></li>
             <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>

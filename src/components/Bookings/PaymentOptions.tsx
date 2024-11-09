@@ -17,19 +17,19 @@ const PaymentOptions: React.FC<PaymentOptionsProps> = ({
       <h1 className="text-3xl font-bold mb-6 text-center">Choose Payment Option</h1>
       <div className="flex flex-col items-center gap-4 mb-6">
         <button
-          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "MOMO" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "MOMO" ? "bg-green-500 text-white" : "bg-gray-200"}`}
           onClick={() => handlePaymentOptionChange("MOMO")}
         >
           MOMO
         </button>
         <button
-          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "Airtel Money" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "Airtel Money" ? "bg-green-500 text-white" : "bg-gray-200"}`}
           onClick={() => handlePaymentOptionChange("Airtel Money")}
         >
           Airtel Money
         </button>
         <button
-          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "Tp&Go" ? "bg-blue-500 text-white" : "bg-gray-200"}`}
+          className={`py-2 px-4 border rounded-lg w-full max-w-md ${paymentOption === "Tp&Go" ? "bg-green-500 text-white" : "bg-gray-200"}`}
           onClick={() => handlePaymentOptionChange("Tp&Go")}
         >
           Tap&Go

@@ -1,90 +1,25 @@
 export const SystemFeedback = [{
     id: 0,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 1,
-    date: "2021-01-01",
-    userName: "User Hello",
+    message: "Kuva natangira gukoresha iyi system, nsingikererwa kukazi.",
+    rating: 5,
+    date: "2025-01-01",
+    userName: "Martha Teta Isimbi",
     userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
 },
 {
     id: 1,
-    message: "Feedback kndglsng slkdfnl.",
+    message: "MobyLife platform urakarama, watumye nongera kubonera umuryango wanjye umwana.",
     rating: 12,
-    date: "2021-01-01",
-    userName: "User Hello",
+    date: "2025-01-01",
+    userName: "Anne Mukagatoya",
     userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
 },
 {
     id: 2,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 2,
-    date: "2021-01-01",
-    userName: "User Hello",
+    message: "Kuva natangira gukorana na MobyLife, inyungu nabonaga yikubye 2.2%.",
+    rating: 9,
+    date: "2025-01-01",
+    userName: "Rukundo Muneza Patrick",
     userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
 },
-{
-    id: 3,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 4,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 4,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 0,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 5,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 0,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 6,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 4,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 7,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 1,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 8,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 0,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 9,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 0,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-},
-{
-    id: 10,
-    message: "Feedback kndglsng slkdfnl.",
-    rating: 5,
-    date: "2021-01-01",
-    userName: "User Hello",
-    userPhoto: "https://images.unsplash.com/photo-1612838320302-4b3b3b3b3b3b"
-}
-
 ]

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { GareForCategoryCardProps } from "../../../../types";
+import { GareForCategoryCardProps } from "../../../types";
 import { RouteForGareCard } from "../RouteCards/GareRouteCard";
 import LoadButton from "../../Buttons/LoadButton";
 

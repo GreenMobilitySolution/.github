@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CarCardProps } from "../../../../types/Car/CarProp";
+import { CarCardProps } from "../../../types/Car/CarProp";
 import StarRating from "../../rating/StarRating";
 import GreenButton from "../../Buttons/GreenButton";
+import { useAuth } from "../../../context/AuthContext";
+import toast from "react-hot-toast";
 
 const CarCard: React.FC<CarCardProps> = ({
   name,
@@ -13,8 +15,15 @@ const CarCard: React.FC<CarCardProps> = ({
   rating,
 }) => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
 
   const handleCardClick = () => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      toast.error("Please login to book a trip");
+      navigate("/login");
+      return;
+    }
     navigate(`/bookings/select-car?car-name=${name}`);
   };
 

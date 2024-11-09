@@ -1,7 +1,7 @@
 import React from "react";
 import BookingCarCard from "../Cards/CarCard/BookingCard";
 import LoadButton from "../Buttons/LoadButton";
-import { Car } from "../../../types";
+import { Car } from "../../types";
 
 interface CarSelectionProps {
   searchTerm: string;

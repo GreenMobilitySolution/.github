@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
-import { BusStop, BusStopProp } from "../../../../types";
+import { BusStop, BusStopProp } from "../../../types";
 import LoadButton from "../../Buttons/LoadButton";
 import { BusStopCard } from "../../Cards/BusStop/BusStop";
 import { busStops } from "../../../../Database/BusStop/BusStops";
@@ -48,7 +48,7 @@ export function BusStopSection(props: BusStopProp) {
       <div id="bus-stops" className="bg-gray-100 py-10">
         <div className="container mx-auto px-4">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-semibold text-gray-800">Bus Stops</h2>
+            <h2 className="text-3xl font-semibold text-gray-800">Aho baviramo/bategera</h2>
             <p className="text-gray-500">Aho baviramo/bategera:</p>
           </div>
 

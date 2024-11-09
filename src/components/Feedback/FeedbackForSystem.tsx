@@ -1,15 +1,11 @@
-import { FeedbackForSystemProps } from "../../../types/Feedback/FeedbackForSystem";
-import { FaStar } from "react-icons/fa";
+import { FeedbackForSystemProps } from "../../types/Feedback/FeedbackForSystem";
+import { FaStar, FaUserCircle } from "react-icons/fa";
 
 export const FeedbackForSystem: React.FC<FeedbackForSystemProps> = (props) => {
   return (
     <div className="flex flex-col p-6 border rounded-lg shadow-lg max-w-sm bg-white transition-transform transform hover:scale-105">
       <div className="flex items-center mb-4">
-        <img
-          src={props.userPhoto}
-          alt={props.userName}
-          className="w-14 h-14 rounded-full mr-4 border-2 border-gray-200"
-        />
+         <FaUserCircle className="w-14 h-14 rounded-full mr-4 text-gray-400" />
         <div>
           <h3 className="text-lg font-semibold text-gray-800">
             {props.userName}

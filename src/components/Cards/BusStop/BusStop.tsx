@@ -1,14 +1,24 @@
 import { useState } from "react";
-import { BusStopCardProps } from "../../../../types";
+import { BusStopCardProps } from "../../../types";
 import { FaMapMarkerAlt, FaTicketAlt } from "react-icons/fa";
 import GreenButton from "../../Buttons/GreenButton";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../context/AuthContext";
+import toast from "react-hot-toast";
 
 export const BusStopCard: React.FC<BusStopCardProps> = ({ busStop, route }) => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
+  
   const [selectedDirection, setSelectedDirection] = useState<string>("");
 
   const handleButtonClick = () => {
+    const isAuth = isAuthenticated();
+    if (!isAuth) {
+      toast.error("Please login to book a trip");
+      navigate("/login");
+      return;
+    }
     navigate(`/bookings/select-car?direction=${selectedDirection}`);
   };
 

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { PropagateLoader } from "react-spinners";
-import { Gare, GareProp, RouteForGare } from "../../../types";
+import { Gare, GareProp, RouteForGare } from "../../types";
 import { GareForCategoryCard } from "../Cards/GareCards/GareForCategoryCard";
 import LoadButton from "../Buttons/LoadButton";
 
